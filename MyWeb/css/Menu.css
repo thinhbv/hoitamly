@@ -1,0 +1,222 @@
+﻿/*menu_main*/
+#header_menu
+{
+    clear: both;
+    width: 1000px;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 5px;
+    float: left;
+    font-family: Arial;
+   
+}
+.animatedtabs
+{
+    float: left;
+    /*overflow: hidden;*/
+    position: relative;
+    height: 30px;
+    padding-top:2px;
+    font-style: normal;
+    clear: both;
+    width: 998px;
+    list-style: none;
+    border-top: solid 1px #e0e0e0;
+    border-left: solid 1px #e0e0e0;
+    border-right: solid 1px #e0e0e0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+     background: -moz-linear-gradient(top,#53AB45 0%,#20940D 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#53AB45),color-stop(100%,#20940D));
+    background: -webkit-linear-gradient(top,#53AB45 0%,#20940D 100%);
+    background: -o-linear-gradient(top,#53AB45 0%,#20940D 100%);
+    background: -ms-linear-gradient(top,#53AB45 0%,#20940D 100%);
+    background: linear-gradient(top,#53AB45 0%,#20940D 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#53AB45',endColorstr='#20940D',GradientTyp)
+}
+.animatedtabs ul
+{
+    list-style-type: none;
+    width: 910px;
+    float: left;
+    margin: 0px 0 0 2px;
+    padding: 0;
+}
+.animatedtabs .tab-lang
+{
+    width: auto;
+    float: right;
+    height: auto;
+    padding-top: 5px;
+}
+.animatedtabs .tab-lang .vi-vn
+{
+    width: 28px;
+    height: 20px;
+    background: url(background/lang-vi.png) no-repeat 0 0;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    margin-right: 5px;
+}
+.animatedtabs .tab-lang .en-us
+{
+    width: 28px;
+    height: 20px;
+    background: url(background/lang-en.png) no-repeat 0 0;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    margin-right: 5px;
+}
+
+.animatedtabs li
+{
+    float: left;
+    display: block;
+    text-decoration: none;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.animatedtabs a
+{
+    float: left;
+    position: relative;
+    display: block;
+    color: #fff;
+    line-height: 30px;
+    text-decoration: none;
+    height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.animatedtabs span
+{
+    float: left;
+    position: relative;
+    display: block;
+    color: #fff;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 8px;
+    font-size: 13px;
+    white-space: nowrap
+}
+.animatedtabs .selected a, .animatedtabs a:hover
+{
+    color: #53AB45 !important;
+    background-color :#fff;
+}
+/*.animatedtabs > li:first-child .selected a span,.animatedtabs > li:first-child a:hover span{ border-top-left-radius: 5px;}
+.animatedtabs > li:first-child .selected a, .animatedtabs > li:first-child a:hover{ border-top-left-radius: 5px;}*/
+
+.animatedtabs li:nth-child(0n+1).selected a span,.animatedtabs li:nth-child(0n+1) a:hover span{ border-top-left-radius: 5px;}
+.animatedtabs li:nth-child(0n+1).selected a, .animatedtabs li:nth-child(0n+1) a:hover{ border-top-left-radius: 5px;}
+
+.animatedtabs .selected a span, .animatedtabs a:hover span
+{
+    background-color :#fff;
+    color: #53AB45 !important;
+}
+.animatedtabs ul li a span:hover
+{
+    color: #53AB45 !important;
+}
+#navbar
+{
+}
+.subMenuContainer
+{
+    display: none;
+}
+#subTopMenu
+{
+    width: 998px;
+    height: 32px;
+    clear: both;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left:solid 1px #e0e0e0;
+    border-right:solid 1px #e0e0e0;
+    border-bottom:solid 1px #e0e0e0;
+    background-color:#fff;
+}
+#subTopMenu .time-now
+ {
+    width:205px;height:100%;
+    line-height:32px;color:#555;padding-left:10px;font-size:12px;float:left;
+}
+#subTopMenu .tablang
+{
+    width: auto;
+    float: right;
+    height: auto;
+    padding-top: 5px;
+}
+#subTopMenu .tablang .vi-vn
+{
+    width: 28px;
+    height: 20px;
+    background: url(background/lang-vi.png) no-repeat 0 0;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    margin-right: 5px;
+    float:right
+}
+#subTopMenu .tablang .en-us
+{
+    width: 28px;
+    height: 20px;
+    background: url(background/lang-en.png) no-repeat 0 0;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    margin-right: 5px; float:right
+}
+#subTopMenu ul
+{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+#subTopMenu ul li
+{
+    padding: 0;
+    margin: 0;
+    float: left;
+    list-style: none;
+}
+#subTopMenu li span
+{
+    float: left;
+    display: block;
+    padding: 0 2px;
+    height: 32px;
+    line-height: 32px;
+    color: #000000;
+    white-space:nowrap
+}
+#subTopMenu ul li a
+{
+    float: left;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+}
+#subTopMenu li.current a, #subTopMenu li a:hover
+{
+    color: #000000; /* background: url(../images/sub_channel_left.jpg) no-repeat left top;*/
+}
+
+#subTopMenu li.current a span, #subTopMenu li a:hover span
+{
+    color: #000000; /* background: url(../images/sub_channel_right.jpg) no-repeat right top;*/
+}

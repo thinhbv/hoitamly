@@ -1,0 +1,92 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="U_Menu.ascx.cs" Inherits="MyWeb.Controls.U_Menu" %>
+<script type="text/javascript">
+	$(document).ready(function () {
+		var key = '<%=keyword%>';
+		$("#tm_submit_search").click(function () {
+			key = $("#tm_search_query").val();
+			window.location.href = "/san-pham?key=" + encodeURIComponent(key);
+		})
+		if (key !== '') {
+			$("#tm_search_query").val(key);
+		}
+	})
+	function PressEnter(e) {
+		if (e.keyCode == 13) {
+			var key = $("#tm_search_query").val();
+			window.location.href = "/san-pham?key=" + encodeURIComponent(key);
+		}
+		return false;
+	}
+</script>
+
+<div id="navbar">
+	<div class="animatedtabs" id="ddtabs">
+		<ul>
+			<asp:Repeater ID="rptMenu" runat="server" OnItemDataBound="rptMenu_ItemDataBound">
+				<ItemTemplate>
+					<li id="subCate<%#Eval("Id").ToString() %>"><a href="<%#Eval("Link").ToString() %>" title="<%#Eval("Name").ToString() %>"><span><%#Eval("Name").ToString() %></span></a>
+						<div id="menusub" class="subMenuContainer" runat="server" enableviewstate="false">
+							<ul>
+								<asp:Repeater ID="rptMenuSub" runat="server">
+									<ItemTemplate>
+										<li><a href="<%#Eval("Link").ToString() %>" title="<%#Eval("Name").ToString() %>"><span><%#Eval("Name").ToString() %> |</span></a></li>
+									</ItemTemplate>
+								</asp:Repeater>
+								<asp:Literal ID="ltrLastItem" runat="server"></asp:Literal>
+							</ul>
+						</div>
+					</li>
+				</ItemTemplate>
+			</asp:Repeater>
+		</ul>
+	</div>
+	<input name="txtCateID" type="text" id="txtCateID" style="display: none">
+	<div id="subTopMenu">
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+	//$(document).ready(function () { showTab('#subCate0'); });
+	var delayhide;
+	$(".animatedtabs li").hover(function () {
+		showTab('#' + $(this).attr("id"));
+	},
+						function () {
+							return true;
+						});
+
+	$("#navbar").hover(function () {
+		if (window.delayhide)
+			clearTimeout(delayhide);
+	},
+						function () {
+							var _cateid = document.getElementById('txtCateID').value;
+							if (_cateid != "")
+								delayhide = setTimeout(showTab(_cateid), 10000);
+							else
+								delayhide = setTimeout(showTab('#subCate0'), 10000);
+						});
+	function showTab(obj) {
+		//alert(obj);
+		$('.animatedtabs').find("li").removeClass("selected");
+		$(obj).addClass("selected");
+		$('#subTopMenu').find("ul").remove();
+		$('#subTopMenu').append($(obj).find(".subMenuContainer").html());
+		var subUl = $(obj).find("a:first");
+		var subUlW = subUl.width();
+		var subMenu = $('#subTopMenu ul li');
+		var subMenuW = 0;
+		$('#subTopMenu ul li').each(function () {
+			subMenuW += $(this).width();
+		});
+		if (subMenuW != 0) {
+			var subPos = $(obj).position();
+			if (subPos.left > ((subMenuW - subUlW) / 2)) {
+				if ((subPos.left + subMenuW / 2 + subUlW / 2) < $('#subTopMenu').innerWidth()) {
+					$('#subTopMenu').find("ul").css({ paddingLeft: (subPos.left - (subMenuW / 2) + subUlW / 2) + "px" });
+				} else {
+					$('#subTopMenu').find("ul").css({ float: "right" });
+				}
+			}
+		}
+	}
+</script>

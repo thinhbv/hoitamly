@@ -1,0 +1,133 @@
+﻿
+/*//////////////////////////////////////////////////////////////
+////////////////BEGIN ShowFaceBox/////////////////////////////*/
+.f_Top_Left
+{
+	background-image: url( 'tl.png' );
+	background-repeat: no-repeat;
+	background-position: right top;
+	width:10px;
+	height:10px;
+}
+.f_Top_Center
+{
+	background-image: url( 'b.png' );
+	height:10px;
+}
+.f_Top_Right
+{
+	background-image: url( 'tr.png' );
+	background-repeat: no-repeat;
+	background-position: left top;
+	width:10px;
+	height:10px;
+}
+.f_Middle_Left
+{
+	background-image: url( 'b.png' );
+	width:10px;
+}
+.f_Middle_Center
+{
+	background-image: url( 'b.png' );
+	background-repeat: repeat;
+}
+.f_Middle_Right
+{
+	background-image: url( 'b.png' );
+	width: 10px;
+}
+.f_Footer_Left
+{
+	background-image: url( 'bl.png' );
+	background-repeat: no-repeat;
+	background-position: right top;
+	width:10px;
+	height:10px;
+}
+.f_Footer_Center
+{
+	background-image: url( 'b.png' );
+}
+.f_Footer_Right
+{
+	background-image: url('br.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	width: 10px;
+	height: 10px;
+}
+.div_FaceBox_Out
+{
+	background-image: url( 'opacity-bg.png' );
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0px;
+	left:0px;
+	z-index:1000;
+	display:none;
+}
+.div_FaceBox_In
+{
+	float:left;
+	width:100%;
+	height:100%;
+}
+.div_FaceBox
+{
+	position:absolute;
+	top:0px;
+	left:0px;	
+}
+.div_FaceBoxTitle
+{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	color: Red;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #FFFFFF;
+	background-color: #999999;
+}
+.div_FaceBoxContent
+{
+	float:left;
+	clear:both;
+	margin: 0 auto;
+	vertical-align: middle;	
+	background-image: url( 'b.png' );
+	background-repeat: repeat;
+	height:auto;
+	width:auto;	
+	overflow:auto;
+	margin-top:15px;
+}
+.div_FaceBoxImageLoading
+{
+	float:left;
+	clear:both;
+}
+.div_FaceBoxContentChild
+{
+	float:left;
+	clear:both;
+}
+.div_FaceBoxClose
+{
+	width:auto;
+	clear:both;
+	text-align: right;
+	position:absolute;
+	top:3px;right:3px;
+}
+.div_FaceBoxClose img
+{
+	cursor:pointer;
+}
+/*//////////////////////////////////////////////////////////////
+////////////////END ShowFaceBox/////////////////////////////*/
