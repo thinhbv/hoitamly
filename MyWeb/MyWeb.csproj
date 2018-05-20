@@ -231,8 +231,6 @@
     <Content Include="Modules\Page\Contact.aspx" />
     <Content Include="Modules\Page\Logon.aspx" />
     <Content Include="Modules\Page\PageDetail.aspx" />
-    <Content Include="Modules\Product\ProductDetail.aspx" />
-    <Content Include="Modules\Product\ViewProduct.aspx" />
     <Content Include="scripts\4mE5LDEd8-kbxBD8mKDrWA8jTCBS-_mfkDNCRJ1Zjhs.js" />
     <Content Include="scripts\ad_status.js" />
     <Content Include="scripts\base.js" />
@@ -1010,20 +1008,6 @@
     </Compile>
     <Compile Include="Modules\Page\PageDetail.aspx.designer.cs">
       <DependentUpon>PageDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Product\ProductDetail.aspx.cs">
-      <DependentUpon>ProductDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Modules\Product\ProductDetail.aspx.designer.cs">
-      <DependentUpon>ProductDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Product\ViewProduct.aspx.cs">
-      <DependentUpon>ViewProduct.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Modules\Product\ViewProduct.aspx.designer.cs">
-      <DependentUpon>ViewProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
