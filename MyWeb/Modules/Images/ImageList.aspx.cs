@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace MyWeb.Modules.Images
 {
-    public partial class ImageList : System.Web.UI.Page
+	public partial class ImageList : System.Web.UI.Page
     {
         protected string GroupId = string.Empty;
         protected string groupName = string.Empty;
@@ -16,13 +16,17 @@ namespace MyWeb.Modules.Images
         {
 			try
 			{
+				
 				if (Page.RouteData.Values["GroupId"] != null)
 				{
 					GroupId = Page.RouteData.Values["GroupId"] as string;
 				}
 				if (!IsPostBack)
 				{
-					Lang = Request.Cookies["CurrentLanguage"].Value;
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
 					List<GroupImages> listGrp = GroupImagesService.GroupImages_GetById(GroupId);
 					if (listGrp.Count > 0)
 					{

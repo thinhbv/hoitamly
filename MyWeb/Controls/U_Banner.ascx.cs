@@ -20,7 +20,10 @@ namespace MyWeb.Controls
             {
 				try
 				{
-					Lang = Request.Cookies["CurrentLanguage"].Value;
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
 					//Lấy thông tin banner
 					DataTable dtBanner = new DataTable();
 					dtBanner = NewsService.News_GetByTop("", "Active=1 AND Position=4 AND Language='" + Lang + "'", "Date DESC");

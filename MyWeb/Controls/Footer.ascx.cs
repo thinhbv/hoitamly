@@ -20,13 +20,16 @@ namespace MyWeb.Controls
             {
 				try
 				{
-					Lang = Request.Cookies["CurrentLanguage"].Value;
-					DataTable dtConfig = ConfigService.Config_GetByTop("1", "", "");
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
+					DataTable dtConfig = ConfigService.Config_GetByTop("1", "Language='" + Lang + "'", "");
 					if (dtConfig.Rows.Count > 0)
 					{
 						ltrInfo.Text = dtConfig.Rows[0]["Copyright"].ToString();
 					}
-					DataTable dt = PageService.Page_GetByTop("", "Active = 1 AND Position = 3 AND Language='" + Lang + "'", "Ord DESC");
+					DataTable dt = PageService.Page_GetByTop("", "Active = 1 AND Position IN (1,3) AND Language='" + Lang + "'", "Ord");
 					if (dt.Rows.Count > 0)
 					{
 						rptMenu.DataSource = dt;

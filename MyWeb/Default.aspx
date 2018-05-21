@@ -31,16 +31,16 @@
 								<h4><a href="<%#Eval("Link").ToString() %>" title="<%#Eval("Name").ToString() %>" class="title"><%#Eval("Name").ToString() %></a></h4>
 								<div class="sapo"><%#StringClass.FormatContentNews(Eval("Content").ToString(), 180) %></div>
 							</ItemTemplate>
-					</asp:Repeater>
+						</asp:Repeater>
 					</div>
-						<ul class="more">
-							<asp:Literal ID="ltrNews" runat="server"></asp:Literal>
-							<asp:Repeater ID="rptNews" runat="server">
-								<ItemTemplate>
-									<li><a href="<%#Eval("Link").ToString() %>"><%#Eval("Name").ToString() %></a></li>
-								</ItemTemplate>
-							</asp:Repeater>
-						</ul>
+					<ul class="more">
+						<asp:Literal ID="ltrNews" runat="server"></asp:Literal>
+						<asp:Repeater ID="rptNews" runat="server">
+							<ItemTemplate>
+								<li><a href="<%#Eval("Link").ToString() %>"><%#Eval("Name").ToString() %></a></li>
+							</ItemTemplate>
+						</asp:Repeater>
+					</ul>
 				</div>
 			</div>
 		</ItemTemplate>

@@ -28,7 +28,10 @@ namespace MyWeb.Modules.News
             {
                 try
                 {
-					Lang = Request.Cookies["CurrentLanguage"].Value;
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
                     DataTable dtNews = NewsService.News_GetById(id);
                     if (dtNews.Rows.Count > 0)
                     {

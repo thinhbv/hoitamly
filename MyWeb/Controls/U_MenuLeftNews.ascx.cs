@@ -22,7 +22,10 @@ namespace MyWeb.Controls
 			{
 				if (!IsPostBack)
 				{
-					Lang = Request.Cookies["CurrentLanguage"].Value;
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
 					DataTable dtVanBan = NewsService.News_GetByTop("", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=1 AND Language='" + Lang + "') AND Language='" + Lang + "'", "Date DESC");
 					if (dtVanBan.Rows.Count > 0)
 					{

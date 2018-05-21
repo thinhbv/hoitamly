@@ -47,7 +47,8 @@
     width: auto;
     float: right;
     height: auto;
-    padding-top: 5px;
+    padding-top: 4px;
+	margin-right:5px;
 }
 .animatedtabs .tab-lang .vi-vn
 {

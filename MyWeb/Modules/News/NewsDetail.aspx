@@ -38,7 +38,7 @@
 		</ul>
 		<div class="list">
 			<div class="cate">
-				<span><asp:Label ID="lblLatestNews" runat="server" meta:resourcekey="lblLatestNews"></asp:Label></span>
+				<span><asp:Label ID="lblLatestNews" runat="server" Text="<%$Resources:Resource.Language, lblLatestNews %>"></asp:Label></span>
 			</div>
 			<ul class="lef">
 				<asp:Repeater ID="rptLeft" runat="server">

@@ -884,7 +884,7 @@ h5 {font-size:13px;line-height:16px;}
 .jcarousel-skin-photo .jcarousel-next-disabled-vertical:focus,
 .jcarousel-skin-photo .jcarousel-next-disabled-vertical:active { cursor: default;opacity:0.5 /*background-position: -96px 0;*/}
 
-.p-partner{width:100%;float:left;height:55px;padding:15px 0;border-top:2px solid #20940D}
+.p-partner{width:100%;float:left;height:55px;padding:15px 0;border-top:2px solid #20940D; margin-top:20px;}
 .p-partner .simply-scroll-container { position: relative;}
 .p-partner .simply-scroll-clip {position: relative;overflow: hidden;z-index: 2;}
 .p-partner .simply-scroll-list { position: absolute;top: 0;left: 0;z-index: 1;overflow: hidden;margin: 0;list-style: none;}
@@ -1130,3 +1130,4 @@ h5 {font-size:13px;line-height:16px;}
 .mod-new{ position: relative;display: inline-block;width: 100%}
 .mod-new img{ position: absolute;right: 5px;top: 30%;z-index: 1 !important;}
 .mod-new .fiximg{ position: relative !important;z-index: 0 !important;}
+.info-whether{float:left;}

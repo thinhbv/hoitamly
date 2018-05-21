@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyWeb.Common;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace MyWeb.Admins
 {
@@ -14,7 +15,7 @@ namespace MyWeb.Admins
         {
 			if (!this.IsPostBack)
 			{
-				DirectoryInfo rootInfo = new DirectoryInfo(Server.MapPath("~/Uploads/"));
+				DirectoryInfo rootInfo = new DirectoryInfo(Server.MapPath("/Uploads/"));
 				this.PopulateTreeView(rootInfo, null);
 			}
         }
@@ -45,21 +46,30 @@ namespace MyWeb.Admins
 						{
 							userPostedFile.SaveAs(filePathImage + "\\" + filename);
 							//Create image thumbnail
-							image = System.Drawing.Image.FromFile(filePathImage + "\\" + filename);
-							if (image.Width >= image.Height)
+							//image = Bitmap.FromFile(filePathImage + "\\" + filename);
+							byte[] bts = System.IO.File.ReadAllBytes(filePathImage + "\\" + filename);
+							using (var ms = new MemoryStream(bts))
 							{
-								thumb = image.GetThumbnailImage(Consts.MAX_IMAGE_THUMBNAIL, Convert.ToInt32((image.Height / (image.Width / Consts.MAX_IMAGE_THUMBNAIL))), () => false, IntPtr.Zero);
+								image = System.Drawing.Image.FromStream(ms);
+								System.Drawing.Image img = image.GetThumbnailImage(200, 260, null, IntPtr.Zero);
+								img.Save(filePathImageThumbs + "\\" + filename, System.Drawing.Imaging.ImageFormat.Jpeg);
 							}
-							else
-							{
-								thumb = image.GetThumbnailImage(Convert.ToInt32((image.Width / (image.Height / Consts.MAX_IMAGE_THUMBNAIL))), Consts.MAX_IMAGE_THUMBNAIL, () => false, IntPtr.Zero);
-							}
-							if (image != null)
-							{
-								image.Dispose();
-								image = null;
-							}
-							thumb.Save(filePathImageThumbs + "\\" + filename);
+							//if (image.Width >= image.Height)
+							//{
+							//	thumb = image.GetThumbnailImage(Consts.MAX_IMAGE_THUMBNAIL, Convert.ToInt32((image.Height / (image.Width / Consts.MAX_IMAGE_THUMBNAIL))), () => false, IntPtr.Zero);
+							//}
+							//else
+							//{
+							//	thumb = image.GetThumbnailImage(Convert.ToInt32((image.Width / (image.Height / Consts.MAX_IMAGE_THUMBNAIL))), Consts.MAX_IMAGE_THUMBNAIL, () => false, IntPtr.Zero);
+							//}
+							//if (image != null)
+							//{
+							//	image.Dispose();
+							//	image = null;
+							//}
+							//Bitmap bmp = new Bitmap(thumb);
+							//bmp.Save(filePathImageThumbs + "\\" + filename);
+							
 							Span1.Text += "Kết quả: Thành công<p>";
 						}
 					}

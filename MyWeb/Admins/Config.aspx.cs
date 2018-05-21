@@ -19,7 +19,7 @@ namespace MyWeb.Admins
         {
             if (!IsPostBack)
             {
-                dt = ConfigService.Config_GetByTop("1","Language='" + ddlLanguage.SelectedValue + "'","");
+                dt = ConfigService.Config_GetByTop("1","Language='vi'","");
                 if (dt.Rows.Count > 0)
                 {
                     Insert = false;

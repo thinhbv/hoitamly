@@ -29,28 +29,6 @@ namespace MyWeb.Common
 			return null;
 		}
 
-		//public static string ShowBannerCenter(string Position)
-		//{
-		//	string Chuoi = "";
-		//	List<Data.Advertise> list = Business.AdvertiseService.Advertise_GetByPosition(Position);
-		//	if (list.Count > 0)
-		//	{
-		//		string path = "";
-		//		path = list[0].Image;
-		//		if (path.IndexOf(".swf") > 0)
-		//		{
-		//			Chuoi += "<script language='javascript'>playfile('" + path + "', '" + list[0].Width + "', '" + list[0].Height + "', true, '', '', 'link=" + list[0].Link + "');</script>";
-		//		}
-		//		else
-		//		{
-		//			Chuoi += "<div class=\"banner\"><img src='" + path + "' width='" + list[0].Width + "' height='" + list[0].Height + "' /></div>";
-		//		}
-		//	}
-		//	list.Clear();
-		//	list = null;
-		//	return Chuoi;
-		//}
-
 		public static string ShowActiveImage(string ActiveCode)
 		{
 			string strReturn = ActiveCode == "1" || ActiveCode == "True" ? "stop.png" : "start.png";
@@ -211,13 +189,13 @@ namespace MyWeb.Common
 
 		public static void LoadDropDownListPagePosition(DropDownList ddl)
 		{
-			string[] myArr = new string[] { "2,Menu chính", "3,Menu dưới" };
+			string[] myArr = new string[] { "1,Menu trên và dưới", "2,Menu trên", "3,Menu dưới" };
 			LoadDropDownList(ddl, myArr, true);
 		}
 
 		public static string ShowPagePosition(string Position)
 		{
-			return Position == "2" ? "Menu chính" : "Menu dưới";
+			return Position == "1" ? "Menu trên và dưới" : Position == "2" ? "Menu trên" : "Menu dưới";
 		}
 
 		public static void LoadDropDownListLanguage(DropDownList ddl)

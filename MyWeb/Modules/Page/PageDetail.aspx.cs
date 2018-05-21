@@ -27,7 +27,10 @@ namespace MyWeb.Modules.Page
             {
                 try
                 {
-					Lang = Request.Cookies["CurrentLanguage"].Value;
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
 					if (Microsoft.VisualBasic.Information.IsNumeric(pageId) == false)
 					{
 						return;

@@ -1,23 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="U_Menu.ascx.cs" Inherits="MyWeb.Controls.U_Menu" %>
-<script type="text/javascript">
-	$(document).ready(function () {
-		var key = '<%=keyword%>';
-		$("#tm_submit_search").click(function () {
-			key = $("#tm_search_query").val();
-			window.location.href = "/san-pham?key=" + encodeURIComponent(key);
-		})
-		if (key !== '') {
-			$("#tm_search_query").val(key);
-		}
-	})
-	function PressEnter(e) {
-		if (e.keyCode == 13) {
-			var key = $("#tm_search_query").val();
-			window.location.href = "/san-pham?key=" + encodeURIComponent(key);
-		}
-		return false;
-	}
-</script>
+<%@ Register Src="~/Controls/U_Language.ascx" TagPrefix="uc1" TagName="U_Language" %>
 
 <div id="navbar">
 	<div class="animatedtabs" id="ddtabs">
@@ -39,6 +21,9 @@
 				</ItemTemplate>
 			</asp:Repeater>
 		</ul>
+		<div class="tab-lang">
+            <uc1:U_Language ID="idU_Language" runat="server" />
+        </div>
 	</div>
 	<input name="txtCateID" type="text" id="txtCateID" style="display: none">
 	<div id="subTopMenu">

@@ -32,7 +32,10 @@ namespace MyWeb.Modules.News
             {
                 try
                 {
-					Lang = Request.Cookies["CurrentLanguage"].Value;
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
                     DataTable dtGrp = GroupNewsService.GroupNews_GetById(id);
                     if (dtGrp.Rows.Count > 0)
                     {

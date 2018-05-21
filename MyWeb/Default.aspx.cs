@@ -11,7 +11,7 @@ using System.Data;
 
 namespace MyWeb
 {
-    public partial class Default : System.Web.UI.Page
+	public partial class Default : BasePage
     {
 		DataTable dtNews = new DataTable();
 		DataTable dtGrp = new DataTable();
@@ -20,12 +20,12 @@ namespace MyWeb
         {
 			try
 			{
-				if (Page.RouteData.Values["lang"] != null)
-				{
-					Lang = Page.RouteData.Values["lang"] as string;
-				}
 				if (!IsPostBack)
 				{
+					if (Request.Cookies["CurrentLanguage"] != null)
+					{
+						Lang = Request.Cookies["CurrentLanguage"].Value;
+					}
 					dtGrp = GroupNewsService.GroupNews_GetByTop("", "Active=1 AND [Index]=0 AND Language='" + Lang + "'", "[Level], Ord");
 					dtNews = NewsService.News_GetByTop("", "Active=1 AND Position=3 AND Language='" + Lang + "'", "Date DESC");
 					if (dtGrp.Rows.Count > 0)

@@ -651,7 +651,6 @@
     <Content Include="scripts\hpcLib.js" />
     <Content Include="scripts\init.js" />
     <Content Include="scripts\jquery-1.11.0.min.js" />
-    <Content Include="scripts\jquery-1.4.2.js" />
     <Content Include="scripts\jquery-ui.min.1.8.js" />
     <Content Include="scripts\jquery.ad-gallery1.js" />
     <Content Include="scripts\jquery.easing.1.3.js" />
@@ -775,11 +774,7 @@
     <Content Include="scripts\unitegallery\themes\video\ug-theme-video.js" />
     <Content Include="scripts\www-embed-player.js" />
     <Content Include="uploads\advertise\anhdemo.jpg" />
-    <Content Include="uploads\images\about.jpg" />
-    <Content Include="uploads\images\anh1.jpg" />
     <Content Include="uploads\_thumbs\Advertise\anhdemo.jpg" />
-    <Content Include="uploads\_thumbs\Images\about.jpg" />
-    <Content Include="uploads\_thumbs\Images\anh1.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -881,9 +876,9 @@
     <Compile Include="Admins\Videos.aspx.designer.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\BasePage.cs">
+    <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    </Compile>
     <Compile Include="Controls\admLeft.ascx.cs">
       <DependentUpon>admLeft.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1023,7 +1018,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
+    <Folder Include="uploads\images\" />
+    <Folder Include="uploads\_thumbs\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fl-bigmug-line.woff" />
@@ -1080,10 +1078,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Resource_en.resx" />
+    <Content Include="App_GlobalResources\Resource.Language.en.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Resource_vi.resx" />
+    <Content Include="App_GlobalResources\Resource.Language.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

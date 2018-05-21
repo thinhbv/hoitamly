@@ -20,21 +20,21 @@ namespace MyWeb
             RouteTable.Routes.MapPageRoute("News", "tin-tuc/{GroupId}/{title}", "~/Modules/News/ViewNews.aspx");
             RouteTable.Routes.MapPageRoute("GroupNews", "tin-tuc/{GroupId}/{title}/trang-{page}", "~/Modules/News/ViewNews.aspx");
             RouteTable.Routes.MapPageRoute("NewsDetail", "tin-tuc/{groupName}/{Id}/{title}", "~/Modules/News/NewsDetail.aspx");
-            RouteTable.Routes.MapPageRoute("Images", "thu-vien-anh/{GroupId}/{title}", "~/Modules/Images/ImageList.aspx");
+            RouteTable.Routes.MapPageRoute("Images", "thu-vien-anh", "~/Modules/Images/ImageList.aspx");
             //Page routes
             RouteTable.Routes.MapPageRoute("PageDetail", "trang-tin/{title}-{pageId}", "~/Modules/Page/PageDetail.aspx");
             RouteTable.Routes.MapPageRoute("Contact", "lien-he", "~/Modules/Page/Contact.aspx");
             RouteTable.Routes.MapPageRoute("Logon", "Logon", "~/Modules/Page/Logon.aspx");
             RouteTable.Routes.MapPageRoute("Admin", "admin", "~/Admins/Default.aspx");
 
-			//News routes
-			RouteTable.Routes.MapPageRoute("NewsEn", "tin-tuc/{lang}/{GroupId}/{title}", "~/Modules/News/ViewNews.aspx");
-			RouteTable.Routes.MapPageRoute("GroupNewsEn", "tin-tuc/{lang}/{GroupId}/{title}/trang-{page}", "~/Modules/News/ViewNews.aspx");
-			RouteTable.Routes.MapPageRoute("NewsDetailEn", "tin-tuc/{lang}/{groupName}/{Id}/{title}", "~/Modules/News/NewsDetail.aspx");
-			RouteTable.Routes.MapPageRoute("ImagesEn", "thu-vien-anh/{lang}/{GroupId}/{title}", "~/Modules/Images/ImageList.aspx");
-			//Page routes
-			RouteTable.Routes.MapPageRoute("PageDetailEn", "trang-tin/{lang}/{title}-{pageId}", "~/Modules/Page/PageDetail.aspx");
-			RouteTable.Routes.MapPageRoute("ContactEn", "{lang}/lien-he", "~/Modules/Page/Contact.aspx");
+			////News routes
+			//RouteTable.Routes.MapPageRoute("NewsEn", "tin-tuc/{lang}/{GroupId}/{title}", "~/Modules/News/ViewNews.aspx");
+			//RouteTable.Routes.MapPageRoute("GroupNewsEn", "tin-tuc/{lang}/{GroupId}/{title}/trang-{page}", "~/Modules/News/ViewNews.aspx");
+			//RouteTable.Routes.MapPageRoute("NewsDetailEn", "tin-tuc/{lang}/{groupName}/{Id}/{title}", "~/Modules/News/NewsDetail.aspx");
+			//RouteTable.Routes.MapPageRoute("ImagesEn", "thu-vien-anh/{lang}/{GroupId}/{title}", "~/Modules/Images/ImageList.aspx");
+			////Page routes
+			//RouteTable.Routes.MapPageRoute("PageDetailEn", "trang-tin/{lang}/{title}-{pageId}", "~/Modules/Page/PageDetail.aspx");
+			//RouteTable.Routes.MapPageRoute("ContactEn", "{lang}/lien-he", "~/Modules/Page/Contact.aspx");
         }
 
         protected void Application_Start(object sender, EventArgs e)
