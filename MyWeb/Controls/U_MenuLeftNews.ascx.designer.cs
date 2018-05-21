@@ -13,6 +13,15 @@ namespace MyWeb.Controls {
     public partial class U_MenuLeftNews {
         
         /// <summary>
+        /// lblVanBan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVanBan;
+        
+        /// <summary>
         /// rptVanBan control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace MyWeb.Controls {
         protected global::System.Web.UI.WebControls.Repeater rptVanBan01;
         
         /// <summary>
+        /// lblVideos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVideos;
+        
+        /// <summary>
         /// rptVideo control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace MyWeb.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptVideo;
+        
+        /// <summary>
+        /// lblMostRead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMostRead;
         
         /// <summary>
         /// rptReadMost control.

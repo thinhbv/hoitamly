@@ -880,6 +880,9 @@
     <Compile Include="Admins\Videos.aspx.designer.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Compile Include="Controls\admLeft.ascx.cs">
       <DependentUpon>admLeft.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1067,6 +1070,12 @@
       <Project>{c8c8dcff-7619-4d03-88b3-be08eae696fd}</Project>
       <Name>MyWeb.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Resource_en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Resource_vi.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

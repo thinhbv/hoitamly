@@ -11,7 +11,7 @@
 	<div class="mod-message">
 		<div class="cate">
 			<h2>
-				<a href="/van-ban-hoi">Văn bản Hội</a>
+				<a href="/van-ban-hoi"><asp:Label ID="lblVanBan" runat="server" meta:resourcekey="lblVanBan"></asp:Label></a>
 			</h2>
 		</div>
 		<div class="vert simply-scroll-container">
@@ -61,7 +61,7 @@
 	<div class="article-video">
 		<div class="cate">
 			<h2>
-				<a href="/video-hoi">Video hội</a>
+				<a href="/video-hoi"><asp:Label id="lblVideos" runat="server" meta:resourcekey="lblVideos"></asp:Label></a>
 			</h2>
 		</div>
 		<div class="active" id="HomeLoadTopvideo">
@@ -109,7 +109,7 @@
 	<div class="p-news-readmore">
 		<div class="cate">
 			<h2>
-				<span>Bài đọc nhiều nhất</span></h2>
+				<asp:Label ID="lblMostRead" runat="server" meta:resourcekey="lblMostRead"></asp:Label></h2>
 		</div>
 		<ul class="cont">
 			<asp:Repeater ID="rptReadMost" runat="server">
