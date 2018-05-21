@@ -16,21 +16,18 @@ namespace MyWeb.Modules.Page
 		protected string sContent = string.Empty;
 		protected string sDateTime = string.Empty;
 		protected string sDetail = string.Empty;
-		protected string Lang = "vi";
+		private string Lang = "vi";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.RouteData.Values["pageId"] != null)
             {
                 pageId = Page.RouteData.Values["pageId"] as string;
             }
-			if (Page.RouteData.Values["lang"] != null)
-			{
-				Lang = Page.RouteData.Values["lang"] as string;
-			}
             if (!IsPostBack)
             {
                 try
                 {
+					Lang = Request.Cookies["CurrentLanguage"].Value;
 					if (Microsoft.VisualBasic.Information.IsNumeric(pageId) == false)
 					{
 						return;

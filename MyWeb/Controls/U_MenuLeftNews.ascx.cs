@@ -15,13 +15,15 @@ namespace MyWeb.Controls
     {
 		protected string VideoName = string.Empty;
 		protected string vId = string.Empty;
+		private string Lang = "vi";
         protected void Page_Load(object sender, EventArgs e)
         {
 			try
 			{
 				if (!IsPostBack)
 				{
-					DataTable dtVanBan = NewsService.News_GetByTop("", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=1)", "Date DESC");
+					Lang = Request.Cookies["CurrentLanguage"].Value;
+					DataTable dtVanBan = NewsService.News_GetByTop("", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=1 AND Language='" + Lang + "') AND Language='" + Lang + "'", "Date DESC");
 					if (dtVanBan.Rows.Count > 0)
 					{
 						rptVanBan.DataSource = PageHelper.ModifyData(dtVanBan);
@@ -31,7 +33,7 @@ namespace MyWeb.Controls
 					}
 					dtVanBan.Clear();
 					dtVanBan.Dispose();
-					DataTable dtVideo = VideosService.Videos_GetByTop("10", "Active=1", "Ord");
+					DataTable dtVideo = VideosService.Videos_GetByTop("10", "Active=1 AND Language='" + Lang + "'", "Ord");
 					if (dtVideo.Rows.Count > 0)
 					{
 						vId = dtVideo.Rows[0]["Link"].ToString();

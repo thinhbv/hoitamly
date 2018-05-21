@@ -11,28 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWeb.Business", "MyWeb.Bus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWeb.Data", "MyWeb.Data\MyWeb.Data.csproj", "{C8C8DCFF-7619-4D03-88B3-BE08EAE696FD}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MutilLang", "http://localhost:51636", "{F8FE58D2-6728-4118-97F3-451B406F2B07}"
-	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_51636"
-		Debug.AspNetCompiler.PhysicalPath = "E:\Amana\MyWeb\MutilLang\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51636\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_51636"
-		Release.AspNetCompiler.PhysicalPath = "E:\Amana\MyWeb\MutilLang\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51636\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "E:\Amana\MyWeb\MutilLang\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +33,6 @@ Global
 		{C8C8DCFF-7619-4D03-88B3-BE08EAE696FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8C8DCFF-7619-4D03-88B3-BE08EAE696FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8C8DCFF-7619-4D03-88B3-BE08EAE696FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8FE58D2-6728-4118-97F3-451B406F2B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8FE58D2-6728-4118-97F3-451B406F2B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8FE58D2-6728-4118-97F3-451B406F2B07}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8FE58D2-6728-4118-97F3-451B406F2B07}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

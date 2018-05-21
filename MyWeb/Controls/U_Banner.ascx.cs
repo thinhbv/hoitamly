@@ -13,15 +13,17 @@ namespace MyWeb.Controls
 {
     public partial class U_Banner : System.Web.UI.UserControl
     {
+		protected string Lang = "vi";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
 				try
 				{
+					Lang = Request.Cookies["CurrentLanguage"].Value;
 					//Lấy thông tin banner
 					DataTable dtBanner = new DataTable();
-					dtBanner = NewsService.News_GetByTop("", "Active=1 AND Position=4", "Date DESC");
+					dtBanner = NewsService.News_GetByTop("", "Active=1 AND Position=4 AND Language='" + Lang + "'", "Date DESC");
 					if (dtBanner.Rows.Count > 0)
 					{
 						rptBanner.DataSource = PageHelper.ModifyData(dtBanner);
@@ -30,7 +32,7 @@ namespace MyWeb.Controls
 					dtBanner.Clear();
 					dtBanner.Dispose();
 					//Lấy tin tức mới nhất
-					DataTable dtNews = NewsService.News_GetByTop("5", "Active=1", "Date DESC");
+					DataTable dtNews = NewsService.News_GetByTop("5", "Active=1 AND Language='" + Lang + "'", "Date DESC");
 					if (dtNews.Rows.Count > 0)
 					{
 						rptNews.DataSource = PageHelper.ModifyData(dtNews);
@@ -38,7 +40,7 @@ namespace MyWeb.Controls
 					}
 					dtNews.Clear();
 					//Lấy tin tức hiển thị dưới banner
-					dtNews = NewsService.News_GetByTop("8", "Active=1 AND Position=2", "Date DESC");
+					dtNews = NewsService.News_GetByTop("8", "Active=1 AND Position=2 AND Language='" + Lang + "'", "Date DESC");
 					if (dtNews.Rows.Count > 0)
 					{
 						rptNews01.DataSource = PageHelper.ModifyData(dtNews);

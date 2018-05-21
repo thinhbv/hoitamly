@@ -11,6 +11,7 @@ namespace MyWeb.Modules.Images
     {
         protected string GroupId = string.Empty;
         protected string groupName = string.Empty;
+		private string Lang = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
 			try
@@ -21,11 +22,12 @@ namespace MyWeb.Modules.Images
 				}
 				if (!IsPostBack)
 				{
+					Lang = Request.Cookies["CurrentLanguage"].Value;
 					List<GroupImages> listGrp = GroupImagesService.GroupImages_GetById(GroupId);
 					if (listGrp.Count > 0)
 					{
 						groupName = listGrp[0].Name;
-						List<Data.Images> listImages = ImagesService.Images_GetByTop("", "Active = 1 AND GroupId = '" + listGrp[0].Id + "'", "Ord");
+						List<Data.Images> listImages = ImagesService.Images_GetByTop("", "Active = 1 AND GroupId = '" + listGrp[0].Id + "' AND Language='" + Lang + "'", "Ord");
 						for (int i = 0; i < listImages.Count; i++)
 						{
 							ltrImages.Text += "<a href=http://unitegallery.net>\n";

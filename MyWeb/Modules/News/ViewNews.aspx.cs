@@ -28,14 +28,11 @@ namespace MyWeb.Modules.News
             {
                 pagenum = Page.RouteData.Values["page"] as string;
             }
-			if (Page.RouteData.Values["lang"] != null)
-			{
-				Lang = Page.RouteData.Values["lang"] as string;
-			}
             if (!IsPostBack)
             {
                 try
                 {
+					Lang = Request.Cookies["CurrentLanguage"].Value;
                     DataTable dtGrp = GroupNewsService.GroupNews_GetById(id);
                     if (dtGrp.Rows.Count > 0)
                     {

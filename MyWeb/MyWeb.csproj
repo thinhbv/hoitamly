@@ -194,6 +194,7 @@
     <Content Include="Controls\Footer.ascx" />
     <Content Include="Controls\U_Banner.ascx" />
     <Content Include="Controls\U_Contact.ascx" />
+    <Content Include="Controls\U_Language.ascx" />
     <Content Include="Controls\U_Menu.ascx" />
     <Content Include="Controls\U_MenuLeft.ascx" />
     <Content Include="Controls\U_MenuLeftNews.ascx" />
@@ -917,6 +918,13 @@
     </Compile>
     <Compile Include="Controls\U_Contact.ascx.designer.cs">
       <DependentUpon>U_Contact.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\U_Language.ascx.cs">
+      <DependentUpon>U_Language.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\U_Language.ascx.designer.cs">
+      <DependentUpon>U_Language.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\U_Menu.ascx.cs">
       <DependentUpon>U_Menu.ascx</DependentUpon>

@@ -16,12 +16,14 @@ namespace MyWeb.Controls
     {
 		protected string keyword = string.Empty;
 		DataTable dtPage = new DataTable();
+		private string Lang = "vi";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
 				try
 				{
+					Lang = Request.Cookies["CurrentLanguage"].Value;
 					if (Request.QueryString["key"] != null)
 					{
 						keyword = Request.QueryString["key"];
@@ -41,7 +43,7 @@ namespace MyWeb.Controls
         /// </summary>
         private void ShowMenu()
         {
-            dtPage = PageService.Page_GetByTop("", "Active=1 and Position = 2", "Level, Ord");
+			dtPage = PageService.Page_GetByTop("", "Active=1 and Position = 2 AND Language='" + Lang + "'", "Level, Ord");
             if (dtPage.Rows.Count > 0)
             {
 				rptMenu.DataSource = dtPage.Select("LEN(Level) = 5").CopyToDataTable();

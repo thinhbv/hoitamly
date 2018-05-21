@@ -23,14 +23,12 @@ namespace MyWeb.Modules.News
             if (Page.RouteData.Values["Id"] != null)
             {
                 id = Page.RouteData.Values["Id"] as string;
-			} if (Page.RouteData.Values["lang"] != null)
-			{
-				Lang = Page.RouteData.Values["lang"] as string;
-			}
+			} 
             if (!IsPostBack)
             {
                 try
                 {
+					Lang = Request.Cookies["CurrentLanguage"].Value;
                     DataTable dtNews = NewsService.News_GetById(id);
                     if (dtNews.Rows.Count > 0)
                     {
