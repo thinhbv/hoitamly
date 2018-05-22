@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace MyWeb.Modules.Images
 {
-	public partial class ImageList : System.Web.UI.Page
+	public partial class ImageList : BasePage
     {
 		protected string GroupId = string.Empty;
 		private string GroupName = string.Empty;

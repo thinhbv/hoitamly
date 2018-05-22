@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/PageMaster.Master" AutoEventWireup="true" CodeBehind="NewsDetail.aspx.cs" Inherits="MyWeb.Modules.News.NewsDetail" %>
 
+<%@ Register Src="~/Controls/U_OtherGroupNews.ascx" TagPrefix="uc1" TagName="U_OtherGroupNews" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -21,6 +22,7 @@
 				<%=sDetail %>
 			</div>
 		</div>
+		<uc1:U_OtherGroupNews runat="server" id="idU_OtherGroupNews" />
 	</div>
 	<div class="news-dt-relation">
 		<div class="cate">

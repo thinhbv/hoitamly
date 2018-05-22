@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultMaster.Master" AutoEventWireup="true" CodeBehind="ViewNews.aspx.cs" Inherits="MyWeb.Modules.News.ViewNews" %>
 
 <%@ Import Namespace="MyWeb.Common" %>
+<%@ Register Src="~/Controls/U_OtherGroupNews.ascx" TagPrefix="uc1" TagName="U_OtherGroupNews" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="news-list0">
 		<asp:Repeater ID="rptNews" runat="server">
@@ -28,4 +30,5 @@
 			</ul>
 		</div>
 	</div>
+	<uc1:U_OtherGroupNews runat="server" id="idU_OtherGroupNews" />
 </asp:Content>

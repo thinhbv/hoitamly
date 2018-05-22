@@ -198,6 +198,7 @@
     <Content Include="Controls\U_Menu.ascx" />
     <Content Include="Controls\U_MenuLeft.ascx" />
     <Content Include="Controls\U_MenuLeftNews.ascx" />
+    <Content Include="Controls\U_OtherGroupNews.ascx" />
     <Content Include="Controls\U_Top.ascx" />
     <Content Include="css\FaceBox.css" />
     <Content Include="css\gallery.css" />
@@ -212,6 +213,8 @@
     <Content Include="images\ico-category-sub.png" />
     <Content Include="images\logo.jpg" />
     <Content Include="images\logo.png" />
+    <Content Include="images\scroll-top-next.png" />
+    <Content Include="images\scroll-top-prev.png" />
     <Content Include="images\Update.png" />
     <Content Include="img\03652e83eb142d7f4d68f7d9cb0b3041421c7fb9_banner-4.jpg" />
     <Content Include="img\2-home-default.jpg" />
@@ -875,7 +878,7 @@
     <Compile Include="Admins\Videos.aspx.designer.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BasePage.cs">
+    <Compile Include="App_Code\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\admLeft.ascx.cs">
@@ -940,6 +943,13 @@
     </Compile>
     <Compile Include="Controls\U_MenuLeftNews.ascx.designer.cs">
       <DependentUpon>U_MenuLeftNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\U_OtherGroupNews.ascx.cs">
+      <DependentUpon>U_OtherGroupNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\U_OtherGroupNews.ascx.designer.cs">
+      <DependentUpon>U_OtherGroupNews.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\U_Top.ascx.cs">
       <DependentUpon>U_Top.ascx</DependentUpon>
@@ -1017,7 +1027,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="uploads\images\" />
     <Folder Include="uploads\_thumbs\Advertise\" />

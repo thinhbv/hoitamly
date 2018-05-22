@@ -43,7 +43,7 @@
 	<div class="latest">
 		<div class="_category">
 			<span>
-				<asp:Label ID="lblLastestNews" runat="server" Text="<%$Resources:Resource.Language, lblLastestNews%>"></asp:Label></span>
+				<asp:Label ID="lblLatestNews" runat="server" Text="<%$Resources:Resource.Language, lblLatestNews%>"></asp:Label></span>
 		</div>
 		<ul>
 			<asp:Repeater ID="rptNews" runat="server">

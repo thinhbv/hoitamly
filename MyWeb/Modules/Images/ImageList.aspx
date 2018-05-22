@@ -11,7 +11,7 @@
 <ul>
 	<asp:Repeater ID="rptGroupImages" runat="server">
 		<ItemTemplate>
-			<li><a href="/<%#Eval("Id").ToString() %>/thu-vien-anh"><h4 class="title_block"><%#Eval("Name").ToString() %></h4></a></li>
+			<li><a href="/<%#Eval("Id").ToString() %>/thu-vien-anh"><%#Eval("Name").ToString() %></a></li>
 		</ItemTemplate>
 	</asp:Repeater>
 </ul>

@@ -77,7 +77,7 @@
 								Vị trí hiển thị
 							</HeaderTemplate>
 							<ItemTemplate>
-								<asp:ImageButton ID="Image2" runat="server" CommandName="Position" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "Position").ToString())%>' />
+								<%#MyWeb.Common.PageHelper.ShowNewsPosition(DataBinder.Eval(Container.DataItem, "Position").ToString())%>
 							</ItemTemplate>
 						</asp:TemplateColumn>
 						<asp:TemplateColumn ItemStyle-CssClass="Center">

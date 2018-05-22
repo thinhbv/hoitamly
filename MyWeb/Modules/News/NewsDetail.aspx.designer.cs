@@ -22,6 +22,15 @@ namespace MyWeb.Modules.News {
         protected global::System.Web.UI.WebControls.Literal ltrCategory;
         
         /// <summary>
+        /// idU_OtherGroupNews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::MyWeb.Controls.U_OtherGroupNews idU_OtherGroupNews;
+        
+        /// <summary>
         /// rptReleative control.
         /// </summary>
         /// <remarks>

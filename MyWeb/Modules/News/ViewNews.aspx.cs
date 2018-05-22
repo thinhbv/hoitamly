@@ -10,7 +10,7 @@ using MyWeb.Common;
 
 namespace MyWeb.Modules.News
 {
-    public partial class ViewNews : System.Web.UI.Page
+    public partial class ViewNews : BasePage
     {
         protected string groupName = string.Empty;
         protected int totalcount = 0;
@@ -53,6 +53,7 @@ namespace MyWeb.Modules.News
                             rptNews.DataBind();
 							ltrPaging.Text = GeneralPaging();
                         }
+						idU_OtherGroupNews.Level = dtGrp.Rows[0]["Level"].ToString();
 					}
 				}
 				catch (Exception ex)

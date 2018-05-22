@@ -61,7 +61,13 @@ namespace MyWeb
 						rptGroupNewsSub.DataSource = drSub.CopyToDataTable();
 						rptGroupNewsSub.DataBind();
 					}
-					DataRow[] drNews = dtNews.Select("GroupNewsId=" + sGroupId, "Date DESC");
+					string strGroup = "(" + sGroupId;
+					for (int i = 0; i < drSub.Length; i++)
+					{
+						strGroup += "," + drSub[i]["Id"].ToString();
+					}
+					strGroup += ")";
+					DataRow[] drNews = dtNews.Select("GroupNewsId IN " + strGroup, "Date DESC");
 					if (drNews != null && drNews.Length > 0)
 					{
 						DataTable dtTemp = PageHelper.ModifyData(drNews.CopyToDataTable());
@@ -70,7 +76,10 @@ namespace MyWeb
 						rptNewsOne.DataBind();
 						dtTemp.Rows[0].Delete();
 						dtTemp.AcceptChanges();
-
+						if (dtTemp.Rows.Count == 0)
+						{
+							return;
+						}
 						string sLink = dtTemp.Rows[0]["Link"].ToString();
 						string sName = dtTemp.Rows[0]["Name"].ToString();
 						string sImage = dtTemp.Rows[0]["Image"].ToString();

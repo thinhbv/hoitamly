@@ -9,7 +9,7 @@ using MyWeb.Common;
 
 namespace MyWeb.Modules.Page
 {
-    public partial class PageDetail : System.Web.UI.Page
+    public partial class PageDetail : BasePage
     {
         protected string pageId = string.Empty;
 		protected string sTitleName = string.Empty;

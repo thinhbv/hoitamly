@@ -299,7 +299,7 @@ namespace MyWeb.Common
 		public static string GeneralDetailUrl(string prefix, string group_name, string id, string pro_name)
 		{
 			string strUrl = string.Empty;
-			strUrl = "/" + prefix + "/" + StringClass.NameToTag(group_name) + "/" + id + "/" + StringClass.NameToTag(pro_name);
+			strUrl = "/" + prefix + "/" + group_name + "/" + id + "/" + StringClass.NameToTag(pro_name);
 			return strUrl;
 		}
 		public static string GeneralGroupUrl(string prefix, string id, string group_name)

@@ -43,7 +43,7 @@ namespace MyWeb.Controls
 					}
 					dtNews.Clear();
 					//Lấy tin tức hiển thị dưới banner
-					dtNews = NewsService.News_GetByTop("8", "Active=1 AND Position=2 AND Language='" + Lang + "'", "Date DESC");
+					dtNews = NewsService.News_GetByTop("4", "Active=1 AND Position=2 AND Language='" + Lang + "'", "Date DESC");
 					if (dtNews.Rows.Count > 0)
 					{
 						rptNews01.DataSource = PageHelper.ModifyData(dtNews);

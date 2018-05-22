@@ -8,7 +8,7 @@ using MyWeb.Common;
 
 namespace MyWeb.Modules.News
 {
-    public partial class NewsDetail : System.Web.UI.Page
+    public partial class NewsDetail : BasePage
     {
 		protected string sTitleName = string.Empty;
 		protected string sContent = string.Empty;
@@ -39,22 +39,13 @@ namespace MyWeb.Modules.News
 						sContent = dtNews.Rows[0]["Content"].ToString();
 						sDetail = dtNews.Rows[0]["Detail"].ToString();
 						sDateTime = DateTimeClass.ConvertDate(dtNews.Rows[0]["Date"].ToString(),"dd/MM/yyyy - HH:mm");
-						//DataTable dtGroup = GroupNewsService.GroupNews_GetById(dtNews.Rows[0]["GroupNewsId"].ToString());
-						//if (dtGroup.Rows.Count > 0)
-						//{
-						//	groupName = dtGroup.Rows[0]["Name"].ToString();
 
-						//	DataTable dtGroupSub = GroupNewsService.GroupNews_GetByTop("", "Active = 1 AND len([Level]) < len('" + dtGroup.Rows[0]["Level"].ToString() + "') AND left([Level], 5) = left('" + dtGroup.Rows[0]["Level"].ToString() + "', 5)", "[Level]");
-						//	if (dtGroupSub.Rows.Count > 0)
-						//	{
-						//		for (int i = 0; i < dtGroupSub.Rows.Count; i++)
-						//		{
-						//			ltrCrumb.Text += "<li class='crumb-" + (i + 1).ToString() + "'>\n";
-						//			ltrCrumb.Text += "<a href='" + PageHelper.GeneralGroupUrl(Consts.CON_SAN_PHAM, dtGroupSub.Rows[i]["Id"].ToString(), dtGroupSub.Rows[i]["Name"].ToString()) + "' title='" + dtGroupSub.Rows[i]["Name"].ToString() + "'>" + dtGroupSub.Rows[i]["Name"].ToString() + "</a>\n";
-						//			ltrCrumb.Text += "</li>\n";
-						//		}
-						//	}
-						//}
+						DataTable dtG = GroupNewsService.GroupNews_GetById(dtNews.Rows[0]["GroupNewsId"].ToString());
+						if (dtG.Rows.Count > 0)
+						{
+							idU_OtherGroupNews.Level = dtG.Rows[0]["Level"].ToString();
+						}
+
 						DataTable dtNewsReleate = NewsService.News_GetByTop("4", "Id <> " + id + " AND Active = 1 AND GroupNewsId = '" + dtNews.Rows[0]["GroupNewsId"].ToString() + "' AND Language='" + Lang + "'", "Date Desc");
                         if (dtNewsReleate.Rows.Count > 0)
                         {

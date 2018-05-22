@@ -22,13 +22,13 @@ namespace MyWeb.Controls {
         protected global::System.Web.UI.WebControls.Repeater rptBanner;
         
         /// <summary>
-        /// lblLastestNews control.
+        /// lblLatestNews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastestNews;
+        protected global::System.Web.UI.WebControls.Label lblLatestNews;
         
         /// <summary>
         /// rptNews control.
