@@ -9,8 +9,8 @@ namespace MyWeb.Modules.Images
 {
 	public partial class ImageList : System.Web.UI.Page
     {
-        protected string GroupId = string.Empty;
-        protected string groupName = string.Empty;
+		protected string GroupId = string.Empty;
+		private string GroupName = string.Empty;
 		private string Lang = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,15 +27,28 @@ namespace MyWeb.Modules.Images
 					{
 						Lang = Request.Cookies["CurrentLanguage"].Value;
 					}
-					List<GroupImages> listGrp = GroupImagesService.GroupImages_GetById(GroupId);
+					List<GroupImages> listGrp = GroupImagesService.GroupImages_GetByTop("","Active=1 AND Language='" + Lang + "'", "Ord");
 					if (listGrp.Count > 0)
 					{
-						groupName = listGrp[0].Name;
-						List<Data.Images> listImages = ImagesService.Images_GetByTop("", "Active = 1 AND GroupId = '" + listGrp[0].Id + "' AND Language='" + Lang + "'", "Ord");
+						if (string.IsNullOrEmpty(GroupId))
+						{
+							GroupId = listGrp[0].Id;
+						}
+						for (int i = 0; i < listGrp.Count; i++)
+						{
+							if (listGrp[i].Id == GroupId)
+							{
+								GroupName = listGrp[i].Name;
+								break;
+							}
+						}
+						rptGroupImages.DataSource = listGrp;
+						rptGroupImages.DataBind();
+						List<Data.Images> listImages = ImagesService.Images_GetByTop("", "Active = 1 AND GroupId = '" + GroupId + "'", "Ord");
 						for (int i = 0; i < listImages.Count; i++)
 						{
 							ltrImages.Text += "<a href=http://unitegallery.net>\n";
-							ltrImages.Text += "<img alt='" + groupName + "'\n";
+							ltrImages.Text += "<img alt='" + GroupName + "'\n";
 							ltrImages.Text += "src='" + StringClass.ThumbImage(listImages[i].Image) + "'\n";
 							ltrImages.Text += "data-image='" + listImages[i].Image + "'\n";
 							ltrImages.Text += "style='display:none'></a>";

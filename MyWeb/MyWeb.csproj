@@ -774,7 +774,6 @@
     <Content Include="scripts\unitegallery\themes\video\ug-theme-video.js" />
     <Content Include="scripts\www-embed-player.js" />
     <Content Include="uploads\advertise\anhdemo.jpg" />
-    <Content Include="uploads\_thumbs\Advertise\anhdemo.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1021,6 +1020,7 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="uploads\images\" />
+    <Folder Include="uploads\_thumbs\Advertise\" />
     <Folder Include="uploads\_thumbs\Images\" />
   </ItemGroup>
   <ItemGroup>

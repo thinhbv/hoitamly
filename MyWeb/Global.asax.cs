@@ -20,7 +20,8 @@ namespace MyWeb
             RouteTable.Routes.MapPageRoute("News", "tin-tuc/{GroupId}/{title}", "~/Modules/News/ViewNews.aspx");
             RouteTable.Routes.MapPageRoute("GroupNews", "tin-tuc/{GroupId}/{title}/trang-{page}", "~/Modules/News/ViewNews.aspx");
             RouteTable.Routes.MapPageRoute("NewsDetail", "tin-tuc/{groupName}/{Id}/{title}", "~/Modules/News/NewsDetail.aspx");
-            RouteTable.Routes.MapPageRoute("Images", "thu-vien-anh", "~/Modules/Images/ImageList.aspx");
+			RouteTable.Routes.MapPageRoute("Images", "thu-vien-anh", "~/Modules/Images/ImageList.aspx");
+			RouteTable.Routes.MapPageRoute("GroupImages", "{GroupId}/thu-vien-anh", "~/Modules/Images/ImageList.aspx");
             //Page routes
             RouteTable.Routes.MapPageRoute("PageDetail", "trang-tin/{title}-{pageId}", "~/Modules/Page/PageDetail.aspx");
             RouteTable.Routes.MapPageRoute("Contact", "lien-he", "~/Modules/Page/Contact.aspx");

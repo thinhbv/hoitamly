@@ -131,7 +131,7 @@
 							<asp:Label ID="lblImage" runat="server" Text="Hình ảnh:"></asp:Label><span style="color: Red; font-size: 11px;"> (278x159)</span></th>
 						<td>
 							<asp:TextBox ID="txtImage" runat="server" CssClass="text image"></asp:TextBox>&nbsp;<input
-								id="btnImgImage" type="button" onclick="BrowseServer('<% =txtImage.ClientID %>	','Images');"
+								id="btnImgImage" type="button" onclick="BrowseServer('<% =txtImage.ClientID %>','Images');"
 								value="Browse Server" />&nbsp;
                             <asp:Image ID="imgImage" runat="server" ImageAlign="Middle" Width="100px" />
 						</td>

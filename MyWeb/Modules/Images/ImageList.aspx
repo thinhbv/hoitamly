@@ -8,34 +8,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <div id="columns" class="container">
-<!-- Breadcrumb -->
-<div class="breadcrumb clearfix">
 <ul>
-<li class="home">
-<a class="home" href="/" title="Return to Home">
-<i class="fa fa-home"></i>
-</a>
-</li>
-<asp:Literal ID="ltrCrumb" runat="server"></asp:Literal>
-<li class="crumb-3 last"><%=groupName %>
-</li>
+	<asp:Repeater ID="rptGroupImages" runat="server">
+		<ItemTemplate>
+			<li><a href="/<%#Eval("Id").ToString() %>/thu-vien-anh"><h4 class="title_block"><%#Eval("Name").ToString() %></h4></a></li>
+		</ItemTemplate>
+	</asp:Repeater>
 </ul>
-</div>
-<!-- /Breadcrumb -->
-<div class="row">
-<div class="large-left col-sm-12">
-<div class="row" style="margin:0;">
-<h4 class="title_block"><%=groupName %></h4>
 <div id="gallery" style="display: none;">
 <asp:Literal ID="ltrImages" runat="server"></asp:Literal>
 </div>
 <!--gallery-->
-</div>
-<!--row-->
-</div>
-<!--large-left-->
-</div>
-<!--row-->
 </div>
 <!--columns-->
 <script type="text/javascript">
