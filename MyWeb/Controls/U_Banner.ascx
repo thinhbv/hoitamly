@@ -60,7 +60,7 @@
 			<ItemTemplate>
 				<li>
 					<a href="<%#Eval("Link").ToString() %>">
-						<img class="photo" src="<%#Eval("Image").ToString() %>" title="<%#Eval("Name").ToString() %>" alt="<%#Eval("Name").ToString() %>">
+						<img class="photo" src="<%#StringClass.ThumbImage(Eval("Image").ToString()) %>" title="<%#Eval("Name").ToString() %>" alt="<%#Eval("Name").ToString() %>">
 					</a>
 					<h5>
 						<a href="<%#Eval("Link").ToString() %>" title="<%#Eval("Name").ToString() %>"><%#Eval("Name").ToString() %></a>

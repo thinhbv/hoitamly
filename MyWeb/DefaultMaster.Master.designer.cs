@@ -22,6 +22,15 @@ namespace MyWeb {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
+        /// idfrm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm idfrm;
+        
+        /// <summary>
         /// idU_Menu control.
         /// </summary>
         /// <remarks>

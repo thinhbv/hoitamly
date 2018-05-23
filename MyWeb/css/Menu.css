@@ -213,13 +213,14 @@
     padding: 0;
     text-align: center;
     cursor: pointer;
+	font-weight:bold;
 }
 #subTopMenu li.current a, #subTopMenu li a:hover
 {
-    color: #000000; /* background: url(../images/sub_channel_left.jpg) no-repeat left top;*/
+    color: #20940D; /* background: url(../images/sub_channel_left.jpg) no-repeat left top;*/
 }
 
 #subTopMenu li.current a span, #subTopMenu li a:hover span
 {
-    color: #000000; /* background: url(../images/sub_channel_right.jpg) no-repeat right top;*/
+    color: #20940D; /* background: url(../images/sub_channel_right.jpg) no-repeat right top;*/
 }

@@ -235,6 +235,7 @@
     <Content Include="Modules\Page\Contact.aspx" />
     <Content Include="Modules\Page\Logon.aspx" />
     <Content Include="Modules\Page\PageDetail.aspx" />
+    <Content Include="Modules\Videos\VideosList.aspx" />
     <Content Include="scripts\4mE5LDEd8-kbxBD8mKDrWA8jTCBS-_mfkDNCRJ1Zjhs.js" />
     <Content Include="scripts\ad_status.js" />
     <Content Include="scripts\base.js" />
@@ -1023,6 +1024,13 @@
     </Compile>
     <Compile Include="Modules\Page\PageDetail.aspx.designer.cs">
       <DependentUpon>PageDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Videos\VideosList.aspx.cs">
+      <DependentUpon>VideosList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Videos\VideosList.aspx.designer.cs">
+      <DependentUpon>VideosList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

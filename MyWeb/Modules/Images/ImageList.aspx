@@ -11,7 +11,7 @@
 <ul>
 	<asp:Repeater ID="rptGroupImages" runat="server">
 		<ItemTemplate>
-			<li><a href="/<%#Eval("Id").ToString() %>/thu-vien-anh"><%#Eval("Name").ToString() %></a></li>
+			<li id="<%#Eval("Id").ToString() %>"><a href="/<%#Eval("Id").ToString() %>/thu-vien-anh"><%#Eval("Name").ToString() %></a></li>
 		</ItemTemplate>
 	</asp:Repeater>
 </ul>
@@ -23,7 +23,15 @@
 <!--columns-->
 <script type="text/javascript">
     jQuery(document).ready(function () {
-        jQuery("#gallery").unitegallery();
+    	jQuery("#gallery").unitegallery();
+    	var id = window.location.pathname.split('/')[1];
+    	if (isNaN(id)) {
+    		jQuery(jQuery("#columns ul li")[0]).attr("class", "selected");
+    	}
+    	else {
+    		jQuery(".selected").removeAttr("class");
+    		jQuery("#" + id).attr("class", "selected");
+    	}
     });
 </script>
 </asp:Content>

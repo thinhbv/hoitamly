@@ -29,7 +29,7 @@ namespace MyWeb.Admins
 
         private void BindGrid()
         {
-            grdGroupNews.DataSource = GroupNewsService.GroupNews_GetByAll();
+			grdGroupNews.DataSource = GroupNewsService.GroupNews_GetByTop("", "[Index] = 0", "Level, Ord");
             grdGroupNews.DataBind();
             if (grdGroupNews.PageCount <= 1)
             {
@@ -124,7 +124,9 @@ namespace MyWeb.Admins
         protected void AddButton_Click(object sender, EventArgs e)
         {
             pnUpdate.Visible = true;
-            ControlClass.ResetControlValues(this);
+			ControlClass.ResetControlValues(this);
+			SqlDataProvider sql = new SqlDataProvider();
+			txtOrd.Text = (Int16.Parse(sql.GetMaxOrd("GroupNews", Level)) + 1).ToString();
 			PageHelper.LoadDropDownListLanguage(ddlLanguage);
             pnView.Visible = false;
             Insert = true;

@@ -13,15 +13,6 @@ namespace MyWeb.Modules.Page {
     public partial class Contact {
         
         /// <summary>
-        /// frmContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmContact;
-        
-        /// <summary>
         /// ltrContact control.
         /// </summary>
         /// <remarks>
@@ -92,14 +83,5 @@ namespace MyWeb.Modules.Page {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSend;
-        
-        /// <summary>
-        /// U_MenuLeft1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::MyWeb.Controls.U_MenuLeft U_MenuLeft1;
     }
 }

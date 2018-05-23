@@ -30,26 +30,45 @@
 	</div>
 </div>
 <script language="javascript" type="text/javascript">
-	//$(document).ready(function () { showTab('#subCate0'); });
+	$(document).ready(function () {
+		var path = window.location.pathname;
+		var isOK = false;
+		$("#ddtabs ul li a").each(function () {
+			if (path === $(this).attr("href")) {
+				showTab($($(this).parent()));
+				$("#txtCateID").val("#" + $($(this).parent()).attr("id"));
+				isOK = true;
+			}
+		})
+		if (isOK === false) {
+			$("#subTopMenu ul li").each(function () {
+				if (path === $($(this).children()).attr("href")) {
+					showTab($($(this).parent()));
+					$("#txtCateID").val("#" + $($(this).parent()).attr("id"));
+					isOK = true;
+				}
+			})
+		}
+	});
 	var delayhide;
 	$(".animatedtabs li").hover(function () {
 		showTab('#' + $(this).attr("id"));
 	},
-						function () {
-							return true;
-						});
+	function () {
+		return false;
+	});
 
 	$("#navbar").hover(function () {
 		if (window.delayhide)
 			clearTimeout(delayhide);
 	},
-						function () {
-							var _cateid = document.getElementById('txtCateID').value;
-							if (_cateid != "")
-								delayhide = setTimeout(showTab(_cateid), 10000);
-							else
-								delayhide = setTimeout(showTab('#subCate0'), 10000);
-						});
+	function () {
+		var _cateid = document.getElementById('txtCateID').value;
+		if (_cateid != "")
+			delayhide = setTimeout(showTab(_cateid), 10000);
+		else
+			delayhide = setTimeout(showTab('#subCate0'), 10000);
+	});
 	function showTab(obj) {
 		//alert(obj);
 		$('.animatedtabs').find("li").removeClass("selected");

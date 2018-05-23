@@ -74,7 +74,7 @@ namespace MyWeb.Admins
             drlnhom.Items.Clear();
             drlnhom.Items.Add(new ListItem("--Chọn nhóm tin--", "0"));
             DataTable dt = new DataTable();
-            dt = GroupNewsService.GroupNews_GetByTop("","Active = 1","Level, Ord");
+            dt = GroupNewsService.GroupNews_GetByTop("","Active = 1 AND [Index] = 0","Level, Ord");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ddlGroupNews.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), dt.Rows[i]["Id"].ToString()));

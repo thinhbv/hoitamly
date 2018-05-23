@@ -82,7 +82,7 @@ namespace MyWeb
 						}
 						string sLink = dtTemp.Rows[0]["Link"].ToString();
 						string sName = dtTemp.Rows[0]["Name"].ToString();
-						string sImage = dtTemp.Rows[0]["Image"].ToString();
+						string sImage = StringClass.ThumbImage(dtTemp.Rows[0]["Image"].ToString());
 						ltrNews.Text += "<li class='top1'><a href='" + sLink + "'>\n";
 						ltrNews.Text += "<img src='" + sImage + "' title='" + sName + "' alt='" + sName + "'><span>" + StringClass.FormatContentNews(sName, 100) + "</span></a></li>\n";
 

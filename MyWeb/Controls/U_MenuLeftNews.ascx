@@ -122,12 +122,12 @@
 
 		</ul>
 	</div>
-	<div class="info-whether">
+	<%--<div class="info-whether">
 		<!-- weather widget start -->
 		<div id="m-booked-custom-widget-31754">
 		</div>
 		<script type="text/javascript"> var css_file = document.createElement("link"); css_file.setAttribute("rel", "stylesheet"); css_file.setAttribute("type", "text/css"); css_file.setAttribute("href", '/css/weather.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData(data) { if (typeof (data) != 'undefined' && data.results.length > 0) { for (var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-custom-widget-31754'); if (objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-' + data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if (copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } }</script>
 		<script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/weather/info?action=get_weather_info&ver=6&cityID=19487,18408,33811,33807,33810&type=2&scode=124&ltid=3458&domid=w209&anc_id=64391&cmetric=1&wlangID=1&color=009f5d&wwidth=285&header_color=ffffff&text_color=333333&link_color=08488D&border_form=1&footer_color=ffffff&footer_text_color=333333&transparent=0"></script>
 		<!-- weather widget end -->
-	</div>
+	</div>--%>
 </div>

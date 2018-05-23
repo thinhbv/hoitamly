@@ -31,13 +31,14 @@
 	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body>
+	<form id="idfrm" runat="server">
 	<div id="workspacecontaint" style="opacity: 1;">
 		<div id="wrapper">
 			<div class="in">
 				<div class="banner">
 					<div class="img-flash" style="position: relative">
-						<a href="http://www.hoinongdan.org.vn/sitepages/trangchu">
-							<img src="/Home_Cổng thông tin điện tử - Hội Nông Dân Việt Nam_files/banneren-597E936.jpg" alt="">
+						<a href="/">
+							<img src="/banneren-597E936.jpg" alt="">
 						</a>
 						<div style="position: absolute; right: 0; top: 13px; height: 100%">
 
@@ -99,5 +100,6 @@
 			</div>
 		</div>
 	</div>
+	</form>
 </body>
 </html>

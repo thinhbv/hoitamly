@@ -116,6 +116,8 @@ namespace MyWeb.Admins
 		{
 			pnUpdate.Visible = true;
 			ControlClass.ResetControlValues(this);
+			SqlDataProvider sql = new SqlDataProvider();
+			txtOrd.Text = (Int16.Parse(sql.GetMaxOrd("GroupImages", Level)) + 1).ToString();
 			PageHelper.LoadDropDownListLanguage(ddlLanguage);
 			pnView.Visible = false;
 			Insert = true;
