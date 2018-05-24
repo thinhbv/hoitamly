@@ -15,6 +15,7 @@ namespace MyWeb.Admins
         static string Id = "";
         static bool Insert = false;
         static string where = "";
+        private string listGroupId = string.Empty;
         SqlDataProvider sql = new SqlDataProvider();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,9 +31,13 @@ namespace MyWeb.Admins
 
         private void BindGrid(string where)
         {
+            if (string.IsNullOrEmpty(listGroupId))
+            {
+                return;
+            }
             if (drlnhom.SelectedValue == "0")
             {
-                grdNews.DataSource = NewsService.News_GetByTop("","","Date desc");
+                grdNews.DataSource = NewsService.News_GetByTop("", "GroupNewsId IN (" + listGroupId + ")", "Date desc");
                 grdNews.DataBind();
                 if (grdNews.PageCount <= 1)
                 {
@@ -79,6 +84,11 @@ namespace MyWeb.Admins
             {
                 ddlGroupNews.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), dt.Rows[i]["Id"].ToString()));
                 drlnhom.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), dt.Rows[i]["Id"].ToString()));
+                listGroupId += dt.Rows[i]["Id"].ToString() + ",";
+            }
+            if (string.IsNullOrEmpty(listGroupId) == false)
+            {
+                listGroupId = listGroupId.Substring(0, listGroupId.Length - 1);
             }
             ddlGroupNews.DataBind();
             drlnhom.DataBind();
@@ -142,7 +152,6 @@ namespace MyWeb.Admins
 					ddlLanguage.SelectedValue = dt.Rows[0]["Language"].ToString();
                     ddlGroupNews.Text = dt.Rows[0]["GroupNewsId"].ToString();
                     ddlPosition.SelectedValue = dt.Rows[0]["Position"].ToString();
-                    chkIndex.Checked = dt.Rows[0]["Index"].ToString() == "1";
                     pnView.Visible = false;
                     pnUpdate.Visible = true;
                     break;
@@ -156,18 +165,6 @@ namespace MyWeb.Admins
                 case "Delete":
                     sql.ExecuteNonQuery("Delete CommentNews where NewsID='" + strCA + "'");
                     NewsService.News_Delete(strCA);
-                    BindGrid(where);
-                    break;
-                case "Priority":
-                    string strPri = "";
-                    strPri = dt.Rows[0]["Priority"].ToString() == "1" ? "0" : "1";
-                    sql.ExecuteNonQuery("Update [News] set [Priority]=" + strPri + "  Where Id='" + strCA + "'");
-                    BindGrid(where);
-                    break;
-                case "Index":
-                    string strIndex = "";
-                    strIndex = dt.Rows[0]["Index"].ToString() == "1" ? "0" : "1";
-                    sql.ExecuteNonQuery("Update [News] set [Index]=" + strIndex + " Where Id='" + strCA + "'");
                     BindGrid(where);
                     break;
             }
@@ -222,7 +219,7 @@ namespace MyWeb.Admins
                 obj.Content = txtContent.Text;
                 obj.Detail = fckDetail.Value;
                 obj.Date = DateTimeClass.ConvertDateTime(txtDate.Text, "MM/dd/yyyy HH:mm:ss");
-                obj.Index = chkIndex.Checked ? "1" : "0";
+                obj.Index = "0";
                 obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
                 obj.Active = chkActive.Checked ? "1" : "0";
                 obj.Position = ddlPosition.SelectedValue;

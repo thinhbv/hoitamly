@@ -85,6 +85,15 @@ namespace MyWeb.Controls {
         protected global::System.Web.UI.WebControls.LinkButton lbtNews;
         
         /// <summary>
+        /// div2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel div2;
+        
+        /// <summary>
         /// lbtGroupImages control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,24 @@ namespace MyWeb.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtImages;
+        
+        /// <summary>
+        /// div3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel div3;
+        
+        /// <summary>
+        /// lbtVanBan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtVanBan;
         
         /// <summary>
         /// div11 control.

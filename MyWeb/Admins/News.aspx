@@ -64,14 +64,6 @@
 								<%#MyWeb.Common.DateTimeClass.ConvertDate(Eval("Date").ToString()) %>
 							</ItemTemplate>
 						</asp:TemplateColumn>
-						<asp:TemplateColumn ItemStyle-CssClass="Center">
-							<HeaderTemplate>
-								Tin mới
-							</HeaderTemplate>
-							<ItemTemplate>
-								<asp:ImageButton ID="Image1" runat="server" CommandName="Index" CommandArgument='<%#Eval("Id") %>' ImageUrl='<%#MyWeb.Common.PageHelper.ShowCheckImage(DataBinder.Eval(Container.DataItem, "Index").ToString())%>' />
-							</ItemTemplate>
-						</asp:TemplateColumn>
 						<asp:TemplateColumn ItemStyle-CssClass="CheckBox">
 							<HeaderTemplate>
 								Vị trí hiển thị
@@ -205,14 +197,6 @@
 						</th>
 						<td>
 							<FCKeditorV2:FCKeditor ID="fckDetail" runat="server" />
-						</td>
-					</tr>
-					<tr>
-						<th>
-							<asp:Label ID="lblIndex" runat="server" Text="Tin mới:"></asp:Label>
-						</th>
-						<td>
-							<asp:CheckBox ID="chkIndex" runat="server" />
 						</td>
 					</tr>
 					<tr>

@@ -10,7 +10,7 @@
 namespace MyWeb.Admins {
     
     
-    public partial class News {
+    public partial class VanBan {
         
         /// <summary>
         /// updatePage control.
@@ -193,31 +193,22 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
         
         /// <summary>
-        /// lblImage control.
+        /// lblFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImage;
+        protected global::System.Web.UI.WebControls.Label lblFile;
         
         /// <summary>
-        /// txtImage control.
+        /// txtFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImage;
-        
-        /// <summary>
-        /// imgImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgImage;
+        protected global::System.Web.UI.WebControls.TextBox txtFile;
         
         /// <summary>
         /// lblDate control.
@@ -290,24 +281,6 @@ namespace MyWeb.Admins {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::FredCK.FCKeditorV2.FCKeditor fckDetail;
-        
-        /// <summary>
-        /// lblPosition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPosition;
-        
-        /// <summary>
-        /// ddlPosition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPosition;
         
         /// <summary>
         /// lblLang control.

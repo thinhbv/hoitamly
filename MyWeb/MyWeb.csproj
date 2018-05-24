@@ -125,6 +125,7 @@
     <Content Include="Admins\Support.aspx" />
     <Content Include="Admins\UploadImages.aspx" />
     <Content Include="Admins\User.aspx" />
+    <Content Include="Admins\VanBan.aspx" />
     <Content Include="Admins\Videos.aspx" />
     <Content Include="App_Themes\Admin\images\add.png" />
     <Content Include="App_Themes\Admin\images\asc.gif" />
@@ -871,6 +872,13 @@
     </Compile>
     <Compile Include="Admins\User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\VanBan.aspx.cs">
+      <DependentUpon>VanBan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\VanBan.aspx.designer.cs">
+      <DependentUpon>VanBan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>

@@ -53,7 +53,7 @@ namespace MyWeb.Admins
                 }
             }
 			ddlLink.Items.Add(new ListItem("Liên hệ", "/lien-he"));
-			ddlLink.Items.Add(new ListItem("Videos", "/videos"));
+            ddlLink.Items.Add(new ListItem("Videos", "/video-hoi"));
             ddlLink.DataBind();
         }
 

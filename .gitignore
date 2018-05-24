@@ -1,1 +1,4 @@
 /MyWeb.WebSvc/
+*.dll
+*.pdb
+.vs/MyWeb/v15/.suo
