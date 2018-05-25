@@ -44,7 +44,7 @@ namespace MyWeb.Controls
 						rptVideo.DataSource = dtVideo;
 						rptVideo.DataBind();
 					}
-					DataTable dtNews = NewsService.News_GetByTop("10", "Active=1", "Views DESC");
+					DataTable dtNews = NewsService.News_GetByTop("10", "Active=1 AND Language='" + Lang + "'", "Views DESC");
 					rptReadMost.DataSource = PageHelper.ModifyData(dtNews);
 					rptReadMost.DataBind();
 				}

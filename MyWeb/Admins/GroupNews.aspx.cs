@@ -91,8 +91,6 @@ namespace MyWeb.Admins
                     dt = GroupNewsService.GroupNews_GetById(Id);
                     Level = dt.Rows[0]["Level"].ToString().Substring(0, dt.Rows[0]["Level"].ToString().Length - 5);
                     txtName.Text = dt.Rows[0]["Name"].ToString();
-                    txtImage.Text = dt.Rows[0]["Image"].ToString();
-                    imgImage.ImageUrl = dt.Rows[0]["Image"].ToString().Length > 0 ? dt.Rows[0]["Image"].ToString() : "";
                     txtOrd.Text = dt.Rows[0]["Ord"].ToString();
 					PageHelper.LoadDropDownListLanguage(ddlLanguage);
 					ddlLanguage.SelectedValue = dt.Rows[0]["Language"].ToString();
@@ -112,12 +110,6 @@ namespace MyWeb.Admins
                     GroupNewsService.GroupNews_Delete(strCA);
                     BindGrid();
                     break;
-				//case "Index":
-				//	string strPri = "";
-				//	strPri = dt.Rows[0]["Index"].ToString() == "1" ? "0" : "1";
-				//	sql.ExecuteNonQuery("Update [GroupNews] set [Index]=" + strPri + "  Where Id='" + strCA + "'");
-				//	BindGrid();
-				//	break;
             }
         }
 
@@ -165,8 +157,8 @@ namespace MyWeb.Admins
                 Data.GroupNews obj = new Data.GroupNews();
                 obj.Id = Id;
                 obj.Name = txtName.Text;
-                obj.Image = txtImage.Text;
                 obj.Level = Level + "00000";
+				obj.Image = "";
                 obj.Ord = txtOrd.Text != "" ? txtOrd.Text : "1";
                 obj.Description = "";
                 obj.Keyword = "";

@@ -6,6 +6,7 @@ namespace MyWeb.Common
 	{
 		public const string CON_SAN_PHAM = "san-pham";
 		public const string CON_TIN_TUC = "tin-tuc";
+		public const string CON_VAN_BAN = "van-ban";
 		public const string CON_PARAM_URL_NO = "no";
 		public const string CON_PARAM_URL_PAGE = "page";
 		public const string CON_PARAM_URL_SORT = "sort";

@@ -32,12 +32,20 @@ namespace MyWeb.Admins
 
         private void BindGrid(string where)
         {
-            if (string.IsNullOrEmpty(listGroupId))
-            {
-                return;
-            }
             if (drlnhom.SelectedValue == "0")
-            {
+			{
+				if (string.IsNullOrEmpty(listGroupId))
+				{
+					for (int i = 1; i < ddlGroupNews.Items.Count; i++)
+					{
+						listGroupId += ddlGroupNews.Items[i].Value + ",";
+					}
+					listGroupId = listGroupId.Substring(0, listGroupId.Length - 1);
+					if (string.IsNullOrEmpty(listGroupId))
+					{
+						return;
+					}
+				}
                 grdNews.DataSource = NewsService.News_GetByTop("", "GroupNewsId IN (" + listGroupId + ")", "Date desc");
                 grdNews.DataBind();
                 if (grdNews.PageCount <= 1)
@@ -76,9 +84,9 @@ namespace MyWeb.Admins
         private void LoadGroupNewsDropDownList()
         {
             ddlGroupNews.Items.Clear();
-            ddlGroupNews.Items.Add(new ListItem("--Chọn nhóm tin--", ""));
+            ddlGroupNews.Items.Add(new ListItem("--Chọn nhóm Văn bản--", ""));
             drlnhom.Items.Clear();
-            drlnhom.Items.Add(new ListItem("--Chọn nhóm tin--", "0"));
+			drlnhom.Items.Add(new ListItem("--Chọn nhóm Văn bản--", "0"));
             DataTable dt = new DataTable();
             dt = GroupNewsService.GroupNews_GetByTop("", "Active = 1 AND [Index] = 1", "Level, Ord");
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -141,9 +149,10 @@ namespace MyWeb.Admins
                     Id = strCA;
                     txtName.Text = dt.Rows[0]["Name"].ToString();
                     txtFile.Text = dt.Rows[0]["File"].ToString();
-                    txtContent.Text = dt.Rows[0]["Content"].ToString();
+                    txtSoHieu.Text = dt.Rows[0]["Content"].ToString();
                     fckDetail.Value = dt.Rows[0]["Detail"].ToString();
                     txtDate.Text = DateTimeClass.ConvertDateTime(dt.Rows[0]["Date"].ToString());
+                    txtPublic.Text = DateTimeClass.ConvertDateTime(dt.Rows[0]["LinkDemo"].ToString());
                     txtOrd.Text = dt.Rows[0]["Ord"].ToString();
                     chkActive.Checked = dt.Rows[0]["Active"].ToString() == "1" || dt.Rows[0]["Active"].ToString() == "True";
                     LoadGroupNewsDropDownList();
@@ -213,7 +222,7 @@ namespace MyWeb.Admins
                 obj.Name = txtName.Text;
                 obj.Image = "";
                 obj.File = txtFile.Text;
-                obj.Content = txtContent.Text;
+                obj.Content = txtSoHieu.Text;
                 obj.Detail = fckDetail.Value;
                 obj.Date = DateTimeClass.ConvertDateTime(txtDate.Text, "MM/dd/yyyy HH:mm:ss");
                 obj.Index = "1";
@@ -225,7 +234,7 @@ namespace MyWeb.Admins
                 obj.Description = "";
                 obj.Keyword = "";
                 obj.Views = "0";
-                obj.LinkDemo = "";
+				obj.LinkDemo = DateTimeClass.ConvertDateTime(txtPublic.Text, "MM/dd/yyyy HH:mm:ss");
                 obj.Language = ddlLanguage.SelectedValue;
                 if (Insert == true)
                 {

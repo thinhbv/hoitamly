@@ -117,8 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblLastestNews" xml:space="preserve">
+  <data name="lblDate" xml:space="preserve">
+    <value>Register date</value>
+  </data>
+  <data name="lblFile" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="lblLatestNews" xml:space="preserve">
     <value>Latest News</value>
+  </data>
+  <data name="lblMostRead" xml:space="preserve">
+    <value>Most Read</value>
+  </data>
+  <data name="lblNumber" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="lblPublic" xml:space="preserve">
+    <value>Publish date</value>
+  </data>
+  <data name="lblTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="lblVanBan" xml:space="preserve">
+    <value>Documents</value>
   </data>
   <data name="lblVideos" xml:space="preserve">
     <value>VASP Videos</value>

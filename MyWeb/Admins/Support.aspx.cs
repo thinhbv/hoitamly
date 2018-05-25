@@ -81,7 +81,6 @@ namespace MyWeb.Admins
                     txtName.Text = dt.Rows[0]["Name"].ToString();
                     txtEmail.Text = dt.Rows[0]["Email"].ToString();
                     txtTel.Text = dt.Rows[0]["Phone"].ToString();
-                    txtYahoo.Text = dt.Rows[0]["Nick"].ToString();
                     txtSkype.Text = dt.Rows[0]["Skype"].ToString();
                     chkActive.Checked = dt.Rows[0]["Active"].ToString() == "1" || dt.Rows[0]["Active"].ToString() == "True";
                     pnView.Visible = false;
@@ -143,7 +142,7 @@ namespace MyWeb.Admins
                 obj.Name = txtName.Text;
                 obj.Email = txtEmail.Text;
                 obj.Phone = txtTel.Text;
-                obj.Nick = txtYahoo.Text;
+                obj.Nick = "";
                 obj.Skype = txtSkype.Text;
                 obj.Active = chkActive.Checked ? "1" : "0";
                 if (Insert == true)

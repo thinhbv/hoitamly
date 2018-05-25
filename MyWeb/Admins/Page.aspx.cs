@@ -41,7 +41,14 @@ namespace MyWeb.Admins
             dt = GroupNewsService.GroupNews_GetByTop("", "Active=1", "Level, Ord");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), PageHelper.GeneralGroupUrl(Consts.CON_TIN_TUC, dt.Rows[i]["Id"].ToString(), dt.Rows[i]["Name"].ToString())));
+				if (dt.Rows[i]["Index"].ToString() == "0")
+				{
+					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), PageHelper.GeneralGroupUrl(Consts.CON_TIN_TUC, dt.Rows[i]["Id"].ToString(), dt.Rows[i]["Name"].ToString())));
+				}
+				else
+				{
+					ddlLink.Items.Add(new ListItem(StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), PageHelper.GeneralGroupUrl(Consts.CON_VAN_BAN, dt.Rows[i]["Id"].ToString(), dt.Rows[i]["Name"].ToString())));
+				}              
             }
             List<Data.GroupImages> listG = GroupImagesService.GroupImages_GetByTop("", "Active=1", "Level, Ord");
 

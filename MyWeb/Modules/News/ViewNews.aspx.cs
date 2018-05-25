@@ -51,7 +51,11 @@ namespace MyWeb.Modules.News
                         {
                             rptNews.DataSource = PageHelper.ModifyData(dtNews);
                             rptNews.DataBind();
-							ltrPaging.Text = GeneralPaging();
+							int totalPage = totalcount / int.Parse(perpage);
+							if (totalPage > 1)
+							{
+								ltrPaging.Text = GeneralPaging();
+							}
                         }
 						idU_OtherGroupNews.Level = dtGrp.Rows[0]["Level"].ToString();
 					}

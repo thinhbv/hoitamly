@@ -102,6 +102,9 @@
 <asp:Panel ID="div3" CssClass="content" ClientIDMode="Static" runat="server">
     <ul>
         <li>
+            <img src="/App_Themes/admin/images/icon_gpro.jpg" /><asp:LinkButton ID="lbtGroupVanBan"
+                CausesValidation="false" runat="server" OnClick="LinkButton_Click">Danh sách nhóm văn bản</asp:LinkButton></li>
+        <li>
             <img src="/App_Themes/admin/images/icon_gpro.jpg" /><asp:LinkButton ID="lbtVanBan"
                 CausesValidation="false" runat="server" OnClick="LinkButton_Click">Danh sách văn bản</asp:LinkButton></li>
     </ul>

@@ -184,24 +184,6 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.TextBox txtTel;
         
         /// <summary>
-        /// lblYahoo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblYahoo;
-        
-        /// <summary>
-        /// txtYahoo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtYahoo;
-        
-        /// <summary>
         /// lblSkype control.
         /// </summary>
         /// <remarks>

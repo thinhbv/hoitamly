@@ -46,8 +46,6 @@
                             Visible="true" />
                         <asp:BoundColumn DataField="Phone" HeaderText="Điện thoại" ItemStyle-CssClass="TextShort"
                             Visible="true" />
-                        <asp:BoundColumn DataField="Nick" HeaderText="Nick Yahoo" ItemStyle-CssClass="TextShort"
-                            Visible="true" />
                         <asp:BoundColumn DataField="Skype" HeaderText="Nick Skype" ItemStyle-CssClass="TextShort"
                             Visible="true" />
                         <asp:TemplateColumn ItemStyle-CssClass="Active">
@@ -127,14 +125,7 @@
                             <asp:TextBox ID="txtTel" runat="server" CssClass="text"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            <asp:Label ID="lblYahoo" runat="server" Text="Nick Yahoo:"></asp:Label>
-                        </th>
-                        <td>
-                            <asp:TextBox ID="txtYahoo" runat="server" CssClass="text"></asp:TextBox>
-                        </td>
-                    </tr><tr>
+					<tr>
                         <th>
                             <asp:Label ID="lblSkype" runat="server" Text="Nick Skype:"></asp:Label>
                         </th>

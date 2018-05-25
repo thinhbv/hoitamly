@@ -119,6 +119,7 @@
     <Content Include="Admins\Default.aspx" />
     <Content Include="Admins\GroupImages.aspx" />
     <Content Include="Admins\GroupNews.aspx" />
+    <Content Include="Admins\GroupVanBan.aspx" />
     <Content Include="Admins\Images.aspx" />
     <Content Include="Admins\News.aspx" />
     <Content Include="Admins\Page.aspx" />
@@ -231,6 +232,7 @@
     <Content Include="img\warning_bar_0000_us.jpg" />
     <Content Include="InnerError.html" />
     <Content Include="Modules\Images\ImageList.aspx" />
+    <Content Include="Modules\News\DocumentList.aspx" />
     <Content Include="Modules\News\NewsDetail.aspx" />
     <Content Include="Modules\News\ViewNews.aspx" />
     <Content Include="Modules\Page\Contact.aspx" />
@@ -831,6 +833,13 @@
     <Compile Include="Admins\GroupNews.aspx.designer.cs">
       <DependentUpon>GroupNews.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admins\GroupVanBan.aspx.cs">
+      <DependentUpon>GroupVanBan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\GroupVanBan.aspx.designer.cs">
+      <DependentUpon>GroupVanBan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admins\Images.aspx.cs">
       <DependentUpon>Images.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -990,6 +999,13 @@
     </Compile>
     <Compile Include="Modules\Images\ImageList.aspx.designer.cs">
       <DependentUpon>ImageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\News\DocumentList.aspx.cs">
+      <DependentUpon>DocumentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\News\DocumentList.aspx.designer.cs">
+      <DependentUpon>DocumentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\News\NewsDetail.aspx.cs">
       <DependentUpon>NewsDetail.aspx</DependentUpon>

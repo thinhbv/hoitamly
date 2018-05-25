@@ -47,13 +47,22 @@
                         <asp:BoundColumn DataField="Active" HeaderText="Active" Visible="False" />
                         <asp:BoundColumn DataField="Name" HeaderText="Tên văn bản" ItemStyle-CssClass="Text"
                             Visible="true" />
+                        <asp:BoundColumn DataField="Content" HeaderText="Số hiệu" ItemStyle-CssClass="Text"
+                            Visible="true" />
                         <asp:TemplateColumn ItemStyle-CssClass="Center">
                             <HeaderTemplate>
-                                Ngày đăng
-						
+                                Ngày đăng					
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%#MyWeb.Common.DateTimeClass.ConvertDate(Eval("Date").ToString()) %>
+                            </ItemTemplate>
+                        </asp:TemplateColumn>
+						<asp:TemplateColumn ItemStyle-CssClass="Center">
+                            <HeaderTemplate>
+                                Ngày phát hành					
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%#MyWeb.Common.DateTimeClass.ConvertDate(Eval("LinkDemo").ToString()) %>
                             </ItemTemplate>
                         </asp:TemplateColumn>
                         <asp:TemplateColumn ItemStyle-CssClass="Center">
@@ -149,8 +158,31 @@
                         </th>
                         <td>
                             <asp:TextBox ID="txtFile" runat="server" CssClass="text image"></asp:TextBox>&nbsp;<input
-                                id="btnFile" type="button" onclick="BrowseServer('<% =txtFile.ClientID %>    ','Files');"
+                                id="btnFile" type="button" onclick="BrowseServer('<% =txtFile.ClientID %>','Files');"
                                 value="Browse Server" />&nbsp;
+                        </td>
+                    </tr>
+					<tr>
+                        <th>
+                            <asp:Label ID="lblSoHieu" runat="server" Text="Số hiệu:"></asp:Label>
+                        </th>
+                        <td>
+                            <asp:TextBox ID="txtSoHieu" runat="server" CssClass="text"></asp:TextBox>
+                        </td>
+                    </tr>
+					<tr>
+                        <th>
+                            <asp:Label ID="lblPublic" runat="server" Text="Ngày phát hành:"></asp:Label>
+                        </th>
+                        <td>
+                            <asp:TextBox ID="txtPublic" runat="server"></asp:TextBox>
+                            <asp:MaskedEditExtender
+                                ID="meePublic" runat="server" Mask="99/99/9999" MaskType="Date" OnFocusCssClass="MaskedEditFocus"
+                                OnInvalidCssClass="MaskedEditError" TargetControlID="txtPublic" AcceptAMPM="True"
+                                Century="2000" />
+                            <asp:MaskedEditValidator ID="mevPublic" runat="server" ControlExtender="meePublic" ControlToValidate="txtPublic"
+                                Display="Dynamic" IsValidEmpty="False"
+                                InvalidValueBlurredMessage="Date is invalid" SetFocusOnError="True" />
                         </td>
                     </tr>
                     <tr>
@@ -166,14 +198,6 @@
                             <asp:MaskedEditValidator ID="mevDate" runat="server" ControlExtender="meeDate" ControlToValidate="txtDate"
                                 Display="Dynamic" EmptyValueBlurredText="Date and time is required" IsValidEmpty="True"
                                 InvalidValueBlurredMessage="Date and time is invalid" SetFocusOnError="True" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <asp:Label ID="lblContent" runat="server" Text="Mô tả:"></asp:Label>
-                        </th>
-                        <td>
-                            <asp:TextBox ID="txtContent" runat="server" CssClass="multiline" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>

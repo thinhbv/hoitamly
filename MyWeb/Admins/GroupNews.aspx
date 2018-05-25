@@ -49,14 +49,14 @@
 								<asp:Label ID="Label1" runat="server" Text='<%# MyWeb.Common.StringClass.ShowNameLevel(DataBinder.Eval(Container.DataItem, "Name").ToString(), DataBinder.Eval(Container.DataItem, "Level").ToString()) %>'></asp:Label>
 							</ItemTemplate>
 						</asp:TemplateColumn>
-						<asp:TemplateColumn ItemStyle-CssClass="Image">
+						<%--<asp:TemplateColumn ItemStyle-CssClass="Image">
 							<HeaderTemplate>
 								Hình ảnh
 							</HeaderTemplate>
 							<ItemTemplate>
 								<image src='<%#Eval("Image") %>' width="70px" />
 							</ItemTemplate>
-						</asp:TemplateColumn>
+						</asp:TemplateColumn>--%>
 						<asp:BoundColumn DataField="Ord" HeaderText="Thứ tự" ItemStyle-CssClass="Number"
 							Visible="true" />
 						<asp:TemplateColumn ItemStyle-CssClass="Center">
@@ -126,40 +126,6 @@
 								SetFocusOnError="True"></asp:RequiredFieldValidator>
 						</td>
 					</tr>
-					<tr>
-						<th>
-							<asp:Label ID="lblImage" runat="server" Text="Hình ảnh:"></asp:Label><span style="color: Red; font-size: 11px;"> (278x159)</span></th>
-						<td>
-							<asp:TextBox ID="txtImage" runat="server" CssClass="text image"></asp:TextBox>&nbsp;<input
-								id="btnImgImage" type="button" onclick="BrowseServer('<% =txtImage.ClientID %>','Images');"
-								value="Browse Server" />&nbsp;
-                            <asp:Image ID="imgImage" runat="server" ImageAlign="Middle" Width="100px" />
-						</td>
-					</tr>
-					<%--<tr>
-                        <th>
-                            <asp:Label ID="lblDescription" runat="server" Text="Description meta:"></asp:Label>
-                        </th>
-                        <td>
-                            <asp:TextBox ID="txtDescription" runat="server" CssClass="text number" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <asp:Label ID="lblKeyword" runat="server" Text="Keyword meta:"></asp:Label>
-                        </th>
-                        <td>
-                            <asp:TextBox ID="txtKeyword" runat="server" CssClass="text number" />
-                        </td>
-                    </tr>--%>
-					<%--<tr>
-                        <th>
-                            <asp:Label ID="lblIndex" runat="server" Text="Ưu tiên trang chủ:"></asp:Label>
-                        </th>
-                        <td>
-                            <asp:CheckBox ID="chkIndex" runat="server" />
-                        </td>
-                    </tr>--%>
 					<tr>
 						<th>
 							<asp:Label ID="lblLang" runat="server" Text="Ngôn ngữ:"></asp:Label>

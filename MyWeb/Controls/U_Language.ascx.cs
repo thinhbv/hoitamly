@@ -35,7 +35,7 @@ namespace MyWeb.Controls
 			cookie.Value = "en";
 			cookie.Expires = DateTime.Now.AddMonths(6);
 			Response.SetCookie(cookie);
-			Response.Redirect(Request.RawUrl);
+			Response.Redirect("/");
 		}
 		protected void ImgBtn_Vi_Click(object sender, ImageClickEventArgs e)
 		{
@@ -43,7 +43,7 @@ namespace MyWeb.Controls
 			cookie.Value = "vi";
 			cookie.Expires = DateTime.Now.AddMonths(6);
 			Response.SetCookie(cookie);
-			Response.Redirect(Request.RawUrl);
+			Response.Redirect("/");
 		}
 	}
 }
