@@ -52,6 +52,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@Password", data.Password));
 			dbCmd.Parameters.Add(new SqlParameter("@Email", data.Email));
 			dbCmd.Parameters.Add(new SqlParameter("@Phone", data.Phone));
+			dbCmd.Parameters.Add(new SqlParameter("@Commission", data.Commission));
 			dbCmd.Parameters.Add(new SqlParameter("@Date", data.Date));
 			dbCmd.Parameters.Add(new SqlParameter("@Admin", data.Admin));
 			dbCmd.Parameters.Add(new SqlParameter("@Active", data.Active));
@@ -72,6 +73,7 @@ namespace MyWeb.Data
 			dbCmd.Parameters.Add(new SqlParameter("@Password", data.Password));
 			dbCmd.Parameters.Add(new SqlParameter("@Email", data.Email));
 			dbCmd.Parameters.Add(new SqlParameter("@Phone", data.Phone));
+			dbCmd.Parameters.Add(new SqlParameter("@Commission", data.Commission));
 			dbCmd.Parameters.Add(new SqlParameter("@Date", data.Date));
 			dbCmd.Parameters.Add(new SqlParameter("@Admin", data.Admin));
 			dbCmd.Parameters.Add(new SqlParameter("@Active", data.Active));

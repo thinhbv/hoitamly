@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admins\Advertise.aspx" />
+    <Content Include="Admins\Commission.aspx" />
     <Content Include="Admins\Config.aspx" />
     <Content Include="Admins\Contact.aspx" />
     <Content Include="Admins\Default.aspx" />
@@ -798,6 +799,13 @@
     <Compile Include="Admins\Advertise.aspx.designer.cs">
       <DependentUpon>Advertise.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admins\Commission.aspx.cs">
+      <DependentUpon>Commission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\Commission.aspx.designer.cs">
+      <DependentUpon>Commission.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admins\Config.aspx.cs">
       <DependentUpon>Config.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -812,6 +820,7 @@
     <Compile Include="Admins\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admins\DataTale.cs" />
     <Compile Include="Admins\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

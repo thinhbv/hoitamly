@@ -24,6 +24,9 @@
             <img alt="" src="/App_Themes/admin/images/icon_user.jpg" /><asp:LinkButton ID="lbtUser"
                 CausesValidation="false" runat="server" OnClick="LinkButton_Click">Danh mục quản trị</asp:LinkButton></li>
         <li>
+            <img alt="" src="/App_Themes/admin/images/icon_user.jpg" /><asp:LinkButton ID="lbtCommission"
+                CausesValidation="false" runat="server" OnClick="LinkButton_Click">Danh mục phân quyền</asp:LinkButton></li>
+        <li>
             <img alt="" src="/App_Themes/admin/images/icon_page.jpg" />
             <asp:LinkButton ID="lbtPage" CausesValidation="false" runat="server" OnClick="LinkButton_Click">Danh mục trang</asp:LinkButton></li>
         <li>

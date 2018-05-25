@@ -136,6 +136,7 @@ namespace MyWeb.Admins
                 obj.Password = txtPassword.Text;
                 obj.Email = txtEmail.Text;
                 obj.Phone = txtPhone.Text;
+				obj.Commission = "";
                 obj.Date = DateTimeClass.ConvertDateTime(DateTime.Now.ToString(), "MM/dd/yy hh:mm:ss");
                 obj.Admin = chkAdmin.Checked ? "1" : "0";
                 obj.Active = "0";
