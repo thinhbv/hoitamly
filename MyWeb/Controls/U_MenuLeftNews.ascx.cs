@@ -15,7 +15,7 @@ namespace MyWeb.Controls
     {
 		protected string VideoName = string.Empty;
 		protected string vId = string.Empty;
-		private string Lang = "vi";
+		protected string Lang = "vi";
         protected void Page_Load(object sender, EventArgs e)
         {
 			try
@@ -44,9 +44,13 @@ namespace MyWeb.Controls
 						rptVideo.DataSource = dtVideo;
 						rptVideo.DataBind();
 					}
-					DataTable dtNews = NewsService.News_GetByTop("10", "Active=1 AND Language='" + Lang + "'", "Views DESC");
+					DataTable dtNews = NewsService.News_GetByTop("10", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Language='" + Lang + "'", "Views DESC");
 					rptReadMost.DataSource = PageHelper.ModifyData(dtNews);
 					rptReadMost.DataBind();
+
+					DataTable dtLink = LinkWebService.LinkWeb_GetByTop("", "Active=1 AND Lang='" + Lang + "'", "Ord");
+					rptLinkWeb.DataSource = dtLink;
+					rptLinkWeb.DataBind();
 				}
 			}
 			catch (Exception ex)

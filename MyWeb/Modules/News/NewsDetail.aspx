@@ -1,13 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/PageMaster.Master" AutoEventWireup="true" CodeBehind="NewsDetail.aspx.cs" Inherits="MyWeb.Modules.News.NewsDetail" %>
-
+<%@ Import Namespace="MyWeb.Common" %>
 <%@ Register Src="~/Controls/U_OtherGroupNews.ascx" TagPrefix="uc1" TagName="U_OtherGroupNews" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="page-category">
-		<asp:Literal ID="ltrCategory" runat="server"></asp:Literal>
-		<h2><a href="http://www.hoinongdan.org.vn/sitepages/chuyenmuc/51/tu-van-phap-luat">TƯ VẤN PHÁP LUẬT</a></h2>
-		<h2><a class="sub" href="http://www.hoinongdan.org.vn/sitepages/chuyenmuc/53/chinh-sach">CHÍNH SÁCH</a></h2>
+		<h2><a href="<%=PageHelper.GeneralGroupUrl(Consts.CON_TIN_TUC,id,groupName) %>"><%=groupName %></a></h2>
 	</div>
 	<div class="page-content">
 		<div class="news-detail">

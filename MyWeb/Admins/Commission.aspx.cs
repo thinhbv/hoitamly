@@ -13,28 +13,26 @@ namespace MyWeb.Admins
 {
 	public partial class Commission : System.Web.UI.Page
 	{
-		static string Id = "";
-		static bool Insert = false;
-		static string Level = "";
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (!IsPostBack)
 			{
+				LoadDropDownListGroupImage();
 				BindGrid();
 			}
 		}
 
 		private void BindGrid()
 		{
-			grdGroupImages.DataSource = GroupImagesService.GroupImages_GetByTop("","Active = 1","");
-			grdGroupImages.DataBind();
-			if (grdGroupImages.PageCount <= 1)
+			grdGroupNews.DataSource = GroupNewsService.GroupNews_GetByTop("", "Active = 1 AND Len(Level) = 5", "");
+			grdGroupNews.DataBind();
+			if (grdGroupNews.PageCount <= 1)
 			{
-				grdGroupImages.PagerStyle.Visible = false;
+				grdGroupNews.PagerStyle.Visible = false;
 			}
 			else
 			{
-				grdGroupImages.PagerStyle.Visible = true;
+				grdGroupNews.PagerStyle.Visible = true;
 			}
 			if (drlUser.SelectedValue != string.Empty)
 			{
@@ -43,7 +41,7 @@ namespace MyWeb.Admins
 				{
 					string sCommission = dtU.Rows[0]["Commission"].ToString();
 					string[] arrGroup;
-					if (string.IsNullOrEmpty(sCommission) == false && sCommission.IndexOf(",") > -1)
+					if (string.IsNullOrEmpty(sCommission) == false)
 					{
 						if (sCommission.IndexOf(",") > -1)
 						{
@@ -55,9 +53,9 @@ namespace MyWeb.Admins
 						}
 						DataGridItem item = default(DataGridItem);
 						string strId = string.Empty;
-						for (int i = 0; i < grdGroupImages.Items.Count; i++)
+						for (int i = 0; i < grdGroupNews.Items.Count; i++)
 						{
-							item = grdGroupImages.Items[i];
+							item = grdGroupNews.Items[i];
 							if (item.ItemType == ListItemType.AlternatingItem | item.ItemType == ListItemType.Item)
 							{
 								strId = item.Cells[1].Text;
@@ -72,7 +70,7 @@ namespace MyWeb.Admins
 			}
 		}
 
-		protected void grdGroupImages_ItemDataBound(object sender, DataGridItemEventArgs e)
+		protected void grdGroupNews_ItemDataBound(object sender, DataGridItemEventArgs e)
 		{
 			ListItemType itemType = e.Item.ItemType;
 			if ((itemType != ListItemType.Footer) && (itemType != ListItemType.Separator))
@@ -87,7 +85,7 @@ namespace MyWeb.Admins
 				}
 				else
 				{
-					string tableRowId = grdGroupImages.ClientID + "_row" + e.Item.ItemIndex.ToString();
+					string tableRowId = grdGroupNews.ClientID + "_row" + e.Item.ItemIndex.ToString();
 					e.Item.Attributes.Add("id", tableRowId);
 					object checkBox = e.Item.FindControl("chkSelect");
 					if ((checkBox != null))
@@ -102,29 +100,34 @@ namespace MyWeb.Admins
 
 		protected void drlUser_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			grdGroupImages.CurrentPageIndex = 0;
+			grdGroupNews.CurrentPageIndex = 0;
 			BindGrid();
 		}
-		protected void grdGroupImages_PageIndexChanged(object sender, EventArgs e)
+		protected void grdGroupNews_PageIndexChanged(object sender, EventArgs e)
 		{
-			grdGroupImages.CurrentPageIndex = 0;
+			grdGroupNews.CurrentPageIndex = 0;
 			BindGrid();
 		}
 		protected void Update_Click(object sender, EventArgs e)
 		{
 			DataGridItem item = default(DataGridItem);
 			string strId = string.Empty;
-			for (int i = 0; i < grdGroupImages.Items.Count; i++)
+			for (int i = 0; i < grdGroupNews.Items.Count; i++)
 			{
-				item = grdGroupImages.Items[i];
+				item = grdGroupNews.Items[i];
 				if (item.ItemType == ListItemType.AlternatingItem | item.ItemType == ListItemType.Item)
 				{
 					if (((CheckBox)item.FindControl("ChkSelect")).Checked)
 					{
 						strId += item.Cells[1].Text + ",";
-						//GroupImagesService.GroupImages_Delete(strId);
-						//SqlDataProvider sql = new SqlDataProvider();
-						//sql.ExecuteNonQuery("Delete From [Images] where GroupId='" + strId + "'");
+						DataTable dtG = GroupNewsService.GroupNews_GetByTop("", "Active = 1 AND Len(Level) = 10 AND Left(Level,5)='" + item.Cells[2].Text + "'", "Level");
+						if (dtG.Rows.Count > 0)
+						{
+							for (int j = 0; j < dtG.Rows.Count; j++)
+							{
+								strId += dtG.Rows[j]["Id"].ToString() + ",";
+							}
+						}
 					}
 				}
 			}
@@ -134,7 +137,7 @@ namespace MyWeb.Admins
 			}
 			SqlDataProvider sql = new SqlDataProvider();
 			sql.ExecuteNonQuery("UPDATE [User] set Commission='" + strId + "' WHERE Id=" + drlUser.SelectedValue);
-			grdGroupImages.CurrentPageIndex = 0;
+			grdGroupNews.CurrentPageIndex = 0;
 			BindGrid();
 		}
 
@@ -143,7 +146,7 @@ namespace MyWeb.Admins
 			drlUser.Items.Clear();
 			drlUser.Items.Add(new ListItem("--Chọn người dùng--", ""));
 			DataTable dtUser = new DataTable();
-			dtUser = UserService.User_GetByTop("", "Active = 1", "");
+			dtUser = UserService.User_GetByTop("", "Active = 1 AND Admin = 0", "");
 
 			for (int i = 0; i < dtUser.Rows.Count; i++)
 			{

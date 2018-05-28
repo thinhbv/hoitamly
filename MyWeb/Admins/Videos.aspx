@@ -93,7 +93,7 @@
             </tr>
             <tr>
                 <th>
-                    <asp:Label ID="lblName" runat="server" Text="Tên quảng cáo:"></asp:Label>
+                    <asp:Label ID="lblName" runat="server" Text="Tên video:"></asp:Label>
                 </th>
                 <td>
                     <asp:TextBox ID="txtName" runat="server" CssClass="text"></asp:TextBox><asp:RequiredFieldValidator

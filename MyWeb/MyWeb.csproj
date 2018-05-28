@@ -122,6 +122,7 @@
     <Content Include="Admins\GroupNews.aspx" />
     <Content Include="Admins\GroupVanBan.aspx" />
     <Content Include="Admins\Images.aspx" />
+    <Content Include="Admins\LinkWeb.aspx" />
     <Content Include="Admins\News.aspx" />
     <Content Include="Admins\Page.aspx" />
     <Content Include="Admins\Support.aspx" />
@@ -213,11 +214,21 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\btndrllinks.png" />
     <Content Include="images\ico-category-sub.png" />
+    <Content Include="images\home.png" />
+    <Content Include="images\ico-rss.png" />
+    <Content Include="images\ico-search.png" />
+    <Content Include="images\icon-title-black.png" />
+    <Content Include="images\lang-en.png" />
+    <Content Include="images\lang-vi.png" />
+    <Content Include="images\loader.gif" />
     <Content Include="images\logo.jpg" />
     <Content Include="images\logo.png" />
+    <Content Include="images\logo_hoi.png" />
     <Content Include="images\scroll-top-next.png" />
     <Content Include="images\scroll-top-prev.png" />
+    <Content Include="images\title-ico.png" />
     <Content Include="images\Update.png" />
     <Content Include="img\03652e83eb142d7f4d68f7d9cb0b3041421c7fb9_banner-4.jpg" />
     <Content Include="img\2-home-default.jpg" />
@@ -239,6 +250,7 @@
     <Content Include="Modules\Page\Contact.aspx" />
     <Content Include="Modules\Page\Logon.aspx" />
     <Content Include="Modules\Page\PageDetail.aspx" />
+    <Content Include="Modules\Page\Search.aspx" />
     <Content Include="Modules\Videos\VideosList.aspx" />
     <Content Include="scripts\4mE5LDEd8-kbxBD8mKDrWA8jTCBS-_mfkDNCRJ1Zjhs.js" />
     <Content Include="scripts\ad_status.js" />
@@ -781,7 +793,20 @@
     <Content Include="scripts\unitegallery\themes\video\skin-right-title-only.css" />
     <Content Include="scripts\unitegallery\themes\video\ug-theme-video.js" />
     <Content Include="scripts\www-embed-player.js" />
-    <Content Include="uploads\advertise\anhdemo.jpg" />
+    <Content Include="uploads\advertise\hoitamly.png" />
+    <Content Include="uploads\advertise\kn-tc_9038180.jpg" />
+    <Content Include="uploads\images\tin-tuc\IMG_6991.JPG" />
+    <Content Include="uploads\images\trao-thuong\IMG_9911.JPG" />
+    <Content Include="uploads\images\trao-thuong\IMG_9912.JPG" />
+    <Content Include="uploads\images\trao-thuong\IMG_9914.JPG" />
+    <Content Include="uploads\images\trao-thuong\IMG_9918.JPG" />
+    <Content Include="uploads\_thumbs\Advertise\hoitamly.png" />
+    <Content Include="uploads\_thumbs\Advertise\kn-tc_9038180.jpg" />
+    <Content Include="uploads\_thumbs\Images\tin-tuc\IMG_6991.JPG" />
+    <Content Include="uploads\_thumbs\Images\trao-thuong\IMG_9911.JPG" />
+    <Content Include="uploads\_thumbs\Images\trao-thuong\IMG_9912.JPG" />
+    <Content Include="uploads\_thumbs\Images\trao-thuong\IMG_9914.JPG" />
+    <Content Include="uploads\_thumbs\Images\trao-thuong\IMG_9918.JPG" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -820,7 +845,6 @@
     <Compile Include="Admins\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admins\DataTale.cs" />
     <Compile Include="Admins\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -855,6 +879,13 @@
     </Compile>
     <Compile Include="Admins\Images.aspx.designer.cs">
       <DependentUpon>Images.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\LinkWeb.aspx.cs">
+      <DependentUpon>LinkWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\LinkWeb.aspx.designer.cs">
+      <DependentUpon>LinkWeb.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admins\News.aspx.cs">
       <DependentUpon>News.aspx</DependentUpon>
@@ -1058,6 +1089,13 @@
     <Compile Include="Modules\Page\PageDetail.aspx.designer.cs">
       <DependentUpon>PageDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Page\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Page\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Videos\VideosList.aspx.cs">
       <DependentUpon>VideosList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1069,9 +1107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="uploads\images\" />
-    <Folder Include="uploads\_thumbs\Advertise\" />
-    <Folder Include="uploads\_thumbs\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fl-bigmug-line.woff" />
@@ -1106,6 +1141,7 @@
     <Content Include="fonts\MaterialIcons-Regular.woff" />
     <None Include="Properties\PublishProfiles\DaMyNghe.pubxml" />
     <None Include="Properties\PublishProfiles\MyWeb.pubxml" />
+    <Content Include="uploads\files\KẾ HOẠCH HOẠT GIÁO DỤC THÁNG 05-2018.doc" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

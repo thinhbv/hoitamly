@@ -8,9 +8,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<title>Đá Mỹ Nghệ HT</title>
-	<meta name="description" content="Looking for licensed software for your computer or network?" />
-	<meta name="generator" content="PrestaShop" />
+	<title>Hội Tâm Lý Học Xã Hội Việt Nam</title>
+
 	<meta name="robots" content="index,follow" />
 	<meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=1.0, initial-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,74 +31,68 @@
 </head>
 <body>
 	<form id="idfrm" runat="server">
-	<div id="workspacecontaint" style="opacity: 1;">
-		<div id="wrapper">
-			<div class="in">
-				<div class="banner">
-					<div class="img-flash" style="position: relative">
-						<a href="/">
-							<img src="/banneren-597E936.jpg" alt="">
-						</a>
-						<div style="position: absolute; right: 0; top: 13px; height: 100%">
-
+		<div id="workspacecontaint" style="opacity: 1;">
+			<div id="wrapper">
+				<div class="in">
+					<div class="banner">
+						<div class="img-flash" style="position: relative">
+							<a href="/">
+								<img src="/uploads/advertise/hoitamly.png" alt="Hội Tâm Lý Học Xã Hội Việt Nam" title="Hội Tâm Lý Học Xã Hội Việt Nam" />
+							</a>
 						</div>
 					</div>
-				</div>
-				<div id="header_menu">
-					<uc2:U_Menu ID="idU_Menu" runat="server" />
-				</div>
+					<div id="header_menu">
+						<uc2:U_Menu ID="idU_Menu" runat="server" />
+					</div>
 
-				<div class="p-top-info">
-					<div id="ctl00_g_6dea3b4a_73bc_4791_acf1_65aa3d0f3f26" __markuptype="vsattributemarkup" __webpartid="{6dea3b4a-73bc-4791-acf1-65aa3d0f3f26}" webpart="true">
-
+					<div class="p-top-info">
 						<div class="time-now">
 							<%=String.Format("{0:dddd, dd/MM/yyyy}", DateTime.Now) + " (GTM+7)" %>
 						</div>
 					</div>
-				</div>
-				<div id="main">
-					<div class="pagel">
-						<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
-					</div>
-					<uc7:menuleftnews id="idU_MenuLeftNews" runat="server" />
-				</div>
-
-				<div class="p-partner">
-					<div class="simply-scroll simply-scroll-container">
-						<div class="simply-scroll-clip">
-							<ul class="simply-scroll-list" id="scrollerPartner" style="width: 1280px;">
-								<asp:Repeater ID="rptDoiTac" runat="server">
-									<ItemTemplate>
-										<li>
-											<a href="<%#Eval("Link").ToString() %>">
-												<img alt="<%#Eval("Name").ToString() %>" title="<%#Eval("Name").ToString() %>" src="<%#Eval("Image").ToString() %>">
-											</a>
-										</li>
-									</ItemTemplate>
-								</asp:Repeater>
-							</ul>
+					<div id="main">
+						<div class="pagel">
+							<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 						</div>
+						<uc7:MenuLeftNews ID="idU_MenuLeftNews" runat="server" />
 					</div>
-					<script type="text/javascript">
-						(function ($) {
-							$(function () {
-								$("#scrollerPartner").simplyScroll({
-									auto: true,
-									autoMode: 'loop'
-								});
-							});
-						})(jQuery);
-					</script>
-				</div>
 
-				<div class="footer">
-					<div class="info">
-						<uc6:Footer ID="idUFooter" runat="server" />
+					<div class="p-partner">
+						<div class="simply-scroll simply-scroll-container">
+							<div class="simply-scroll-clip">
+								<ul class="simply-scroll-list" id="scrollerPartner" style="width: 1280px;">
+									<asp:Repeater ID="rptDoiTac" runat="server">
+										<ItemTemplate>
+											<li>
+												<a href="<%#Eval("Link").ToString() %>">
+													<img alt="<%#Eval("Name").ToString() %>" title="<%#Eval("Name").ToString() %>" src="<%#Eval("Image").ToString() %>">
+												</a>
+											</li>
+										</ItemTemplate>
+									</asp:Repeater>
+								</ul>
+							</div>
+						</div>
+						<script type="text/javascript">
+							(function ($) {
+								$(function () {
+									$("#scrollerPartner").simplyScroll({
+										auto: true,
+										autoMode: 'loop'
+									});
+								});
+							})(jQuery);
+						</script>
+					</div>
+
+					<div class="footer">
+						<div class="info">
+							<uc6:Footer ID="idUFooter" runat="server" />
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</form>
 </body>
 </html>

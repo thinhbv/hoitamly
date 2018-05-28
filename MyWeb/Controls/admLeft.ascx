@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="True" CodeBehind="admLeft.ascx.cs" Inherits="MyWeb.Controls.admLeft" %>
-<table class="table" cellspacing="0" cellpadding="0">
+<table id="table1" runat="server" class="table" cellspacing="0" cellpadding="0">
     <tr>
         <td class="left">
             <img alt="" src="/App_Themes/admin/images/blank.gif" />
@@ -60,7 +60,7 @@
                 runat="server" OnClick="LinkButton_Click">Danh mục tin tức</asp:LinkButton></li>
     </ul>
 </asp:Panel>
-<table class="table" cellspacing="0" cellpadding="0">
+<table id="table2" runat="server" class="table" cellspacing="0" cellpadding="0">
     <tr>
         <td class="left">
             <img src="/App_Themes/admin/images/blank.gif" />
@@ -69,7 +69,7 @@
             Hình ảnh
         </td>
         <td class="image">
-            <img id="imgdiv2" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div10');" />
+            <img id="imgdiv2" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div2');" />
         </td>
         <td class="right">
             <img src="/App_Themes/admin/images/blank.gif" />
@@ -86,7 +86,7 @@
                 CausesValidation="false" runat="server" OnClick="LinkButton_Click">Danh mục hình ảnh</asp:LinkButton></li>
     </ul>
 </asp:Panel>
-<table class="table" cellspacing="0" cellpadding="0">
+<table id="table3" runat="server" class="table" cellspacing="0" cellpadding="0">
     <tr>
         <td class="left">
             <img src="/App_Themes/admin/images/blank.gif" />
@@ -95,7 +95,7 @@
             Văn bản
         </td>
         <td class="image">
-            <img id="imgdiv3" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div10');" />
+            <img id="imgdiv3" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div3');" />
         </td>
         <td class="right">
             <img src="/App_Themes/admin/images/blank.gif" />
@@ -190,7 +190,7 @@
             Chức năng khác
         </td>
         <td class="image">
-            <img alt="" id="imgdiv8" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('div8');" />
+            <img alt="" id="imgPanel1" src="/App_Themes/admin/images/closed.gif" onclick="toggleXPMenu('Panel1');" />
         </td>
         <td class="right">
             <img alt="" src="/App_Themes/admin/images/blank.gif" />
@@ -199,6 +199,9 @@
 </table>
 <asp:Panel ID="Panel1" CssClass="content" ClientIDMode="Static" runat="server">
     <ul>
+        <li>
+            <img alt="" src="/App_Themes/admin/images/icon_pro.jpg" /><asp:LinkButton ID="lbtLinkWeb"
+                CausesValidation="false" runat="server" OnClick="LinkButton_Click">Danh sách liên kết</asp:LinkButton></li>
         <li>
             <img alt="" src="/App_Themes/admin/images/icon_pro.jpg" /><asp:LinkButton ID="lbtUploadImages"
                 CausesValidation="false" runat="server" OnClick="LinkButton_Click">Upload ảnh</asp:LinkButton></li>

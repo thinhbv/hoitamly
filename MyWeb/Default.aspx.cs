@@ -26,8 +26,16 @@ namespace MyWeb
 					{
 						Lang = Request.Cookies["CurrentLanguage"].Value;
 					}
+					if (Lang == "vi")
+					{
+						Page.Title = "Hội Tâm Lý Học Xã Hội Việt Nam";
+					}
+					else
+					{
+						Page.Title = "VietNam Association Of Social Psychology";
+					}
 					dtGrp = GroupNewsService.GroupNews_GetByTop("", "Active=1 AND [Index]=0 AND Language='" + Lang + "'", "[Level], Ord");
-					dtNews = NewsService.News_GetByTop("", "Active=1 AND Position=3 AND Language='" + Lang + "'", "Date DESC");
+					dtNews = NewsService.News_GetByTop("", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Position=3 AND Language='" + Lang + "'", "Date DESC");
 					if (dtGrp.Rows.Count > 0)
 					{
 						dtGrp = PageHelper.ModifyDataGroup(dtGrp);

@@ -56,6 +56,8 @@
     <Compile Include="GroupProductInfo.cs" />
     <Compile Include="ImagesController.cs" />
     <Compile Include="ImagesInfo.cs" />
+    <Compile Include="LinkWebController.cs" />
+    <Compile Include="LinkWebInfo.cs" />
     <Compile Include="NewsController.cs" />
     <Compile Include="NewsInfo.cs" />
     <Compile Include="PageController.cs" />

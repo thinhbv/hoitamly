@@ -14,11 +14,23 @@ namespace MyWeb.Modules.Page
 {
     public partial class Contact : BasePage
     {
+		string Lang = "vi";
         protected void Page_Load(object sender, EventArgs e)
         {
+			if (Session["Language"] != null)
+			{
+				Lang = Session["Language"].ToString();
+			}
             if (!IsPostBack)
             {
-                Page.Title = "Liên hệ với chúng tôi";
+				if (Lang == "vi")
+				{
+					Page.Title = "Liên hệ với chúng tôi";
+				}
+				else
+				{
+					Page.Title = "Contact to ours";
+				}
                 DataTable dt = ConfigService.Config_GetByTop("1", "", "");
                 if (dt.Rows.Count > 0)
                 {
@@ -38,6 +50,7 @@ namespace MyWeb.Modules.Page
 			obj.Title = txtTitle.Text;
 			obj.Detail = txtDetail.Text;
 			obj.Date = DateTimeClass.ConvertDateTime(DateTime.Now.ToLongDateString(), "MM/dd/yyyy HH:mm:ss");
+			obj.Language = "vi";
 			ContactService.Contact_Insert(obj);
 			#region[SendMail]
 			try

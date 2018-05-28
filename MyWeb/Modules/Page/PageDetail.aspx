@@ -23,8 +23,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="page-category">
 		<asp:Literal ID="ltrCategory" runat="server"></asp:Literal>
-		<h2><a href="http://www.hoinongdan.org.vn/sitepages/chuyenmuc/51/tu-van-phap-luat">TƯ VẤN PHÁP LUẬT</a></h2>
-		<h2><a class="sub" href="http://www.hoinongdan.org.vn/sitepages/chuyenmuc/53/chinh-sach">CHÍNH SÁCH</a></h2>
+		<h2><a href="/"><img src="../../images/home.png" /></a></h2>
+		<h2><span class="sub"><%=sTitleName %></span></h2>
 	</div>
 	<div class="page-content">
 		<div class="news-detail">

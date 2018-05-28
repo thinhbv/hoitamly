@@ -15,7 +15,7 @@
 					<ul>
 						<asp:Repeater ID="rptGroupNewsSub" runat="server">
 							<ItemTemplate>
-								<li><span>|</span> <a href="<%#Eval("Link").ToString() %>" title="<%#Eval("Name").ToString() %>"><%#Eval("Name").ToString() %></a></li>
+								<li><%--<span>|</span> --%><a href="<%#Eval("Link").ToString() %>" title="<%#Eval("Name").ToString() %>"><%#Eval("Name").ToString() %></a></li>
 							</ItemTemplate>
 						</asp:Repeater>
 					</ul>

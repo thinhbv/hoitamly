@@ -20,6 +20,14 @@ namespace MyWeb.Modules.Images
 				{
 					GroupId = Page.RouteData.Values["GroupId"] as string;
 				}
+				if (Lang == "en")
+				{
+					Page.Title = "VietNam Association Of Social Psychology";
+				}
+				else
+				{
+					Page.Title = "Hội Tâm Lý Học Xã Hội Việt Nam";
+				}
 				if (!IsPostBack)
 				{
 					if (Request.Cookies["CurrentLanguage"] != null)
@@ -38,6 +46,7 @@ namespace MyWeb.Modules.Images
 							if (listGrp[i].Id == GroupId)
 							{
 								GroupName = listGrp[i].Name;
+								Page.Title = GroupName;
 								break;
 							}
 						}

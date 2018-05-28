@@ -13,6 +13,7 @@ namespace MyWeb.Admins
     {
         static string Id = "";
         static bool Insert = false;
+		string sCommission = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -69,12 +70,14 @@ namespace MyWeb.Admins
 
         protected void grdUser_ItemCommand(object source, DataGridCommandEventArgs e)
         {
-            string strCA = e.CommandArgument.ToString();
+			string strCA = e.CommandArgument.ToString();
+			SqlDataProvider sql = new SqlDataProvider();
             switch (e.CommandName)
             {
                 case "Edit":
                     Insert = false;
                     Id = strCA;
+					sCommission = e.Item.Cells[3].Text;
                     DataTable dt = new DataTable();
                     dt = UserService.User_GetById(Id);
                     txtName.Text = dt.Rows[0]["Name"].ToString();
@@ -83,6 +86,7 @@ namespace MyWeb.Admins
                     txtEmail.Text = dt.Rows[0]["Email"].ToString();
                     txtPhone.Text = dt.Rows[0]["Phone"].ToString();
                     chkAdmin.Checked = dt.Rows[0]["Admin"].ToString() == "1" || dt.Rows[0]["Admin"].ToString() == "True";
+					chkActive.Checked = dt.Rows[0]["Active"].ToString() == "1" || dt.Rows[0]["Active"].ToString() == "True";
                     pnView.Visible = false;
                     pnUpdate.Visible = true;
                     break;
@@ -90,6 +94,26 @@ namespace MyWeb.Admins
                     UserService.User_Delete(strCA);
                     BindGrid();
                     break;
+				case "Active":
+					string strA = "";
+					string str = e.Item.Cells[2].Text;
+					strA = str == "1" ? "0" : "1";
+					sql.ExecuteNonQuery("Update [User] set Active=" + strA + "  Where Id='" + strCA + "'");
+					BindGrid();
+					break;
+				case "Admin":
+					str = e.Item.Cells[1].Text;
+					if (strCA == "1")
+					{
+						strCA = "0";
+					}
+					else
+					{
+						strCA = "1";
+					}
+					sql.ExecuteNonQuery("Update [User] set Admin=" + strCA + "  Where Id='" + str + "'");
+					BindGrid();
+					break;
             }
         }
 
@@ -136,10 +160,10 @@ namespace MyWeb.Admins
                 obj.Password = txtPassword.Text;
                 obj.Email = txtEmail.Text;
                 obj.Phone = txtPhone.Text;
-				obj.Commission = "";
+				obj.Commission = sCommission;
                 obj.Date = DateTimeClass.ConvertDateTime(DateTime.Now.ToString(), "MM/dd/yy hh:mm:ss");
                 obj.Admin = chkAdmin.Checked ? "1" : "0";
-                obj.Active = "0";
+				obj.Active = chkActive.Checked ? "1" : "0";
                 if (Insert == true)
                 {
                     UserService.User_Insert(obj);

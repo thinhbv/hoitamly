@@ -39,7 +39,8 @@ namespace MyWeb.Modules.Page
                     if (dtPage.Rows.Count > 0)
                     {
 						sTitleName = dtPage.Rows[0]["Name"].ToString();
-						sDateTime = DateTimeClass.ConvertDate(dtPage.Rows[0]["Image"].ToString(), "dd/MM/yyy - HH:mm");
+						Page.Title = sTitleName;
+						sDateTime = DateTimeClass.ConvertDate(dtPage.Rows[0]["Image"].ToString(), "dd/MM/yyyy - HH:mm");
 						sContent = dtPage.Rows[0]["Description"].ToString();
 						sDetail = dtPage.Rows[0]["Detail"].ToString();
 					}

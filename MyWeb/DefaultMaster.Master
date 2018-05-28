@@ -9,9 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<title>Hội tâm lý học Việt Nam</title>
-	<meta name="description" content="Shop powered by PrestaShop" />
-	<meta name="generator" content="PrestaShop" />
+	<title>Hội Tâm Lý Học Xã Hội Việt Nam</title>
 	<meta name="robots" content="index,follow" />
 	<meta name="viewport" content="width=device-width, minimum-scale=0.25, maximum-scale=1.0, initial-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -42,10 +40,8 @@
 				<div class="banner">
 					<div class="img-flash" style="position: relative">
 						<a href="/">
-							<img src="/Images/Logo.png" alt="">
+							<img src="/uploads/advertise/hoitamly.png" alt="Hội Tâm Lý Học Xã Hội Việt Nam" title="Hội Tâm Lý Học Xã Hội Việt Nam" />
 						</a>
-						<div style="position: absolute; right: 0; top: 13px; height: 100%">
-						</div>
 					</div>
 				</div>
 				<div id="header_menu">
@@ -54,7 +50,7 @@
 
 				<div class="p-top-info">
 					<div class="time-now">
-						<%=String.Format("{0:dddd, dd/MM/yyyy}", DateTime.Now) + " (GTM+7)" %>
+						<%=String.Format("{0:dddd, dd/MM/yyyy}", DateTime.Now) + " (GTM+7)" %><div style="float:right; color:gold; font-weight:bold;">Hotline: <asp:Literal ID="ltrName" runat="server"></asp:Literal></div>
 					</div>
 				</div>
 				<div id="main">

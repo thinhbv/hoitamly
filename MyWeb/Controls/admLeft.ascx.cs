@@ -21,6 +21,16 @@ namespace MyWeb.Controls
             
             if (!IsPostBack)
             {
+				if (Session["IsAdmin"] == null || Session["IsAdmin"].ToString() == "0")
+				{
+					table1.Visible = false;
+					div1.Visible = false;
+				}
+				else
+				{
+					table1.Visible = true;
+					div1.Visible = true;
+				}
                 LastLoadedPage = default_path_file;
             }
         }

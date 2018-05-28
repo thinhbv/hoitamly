@@ -17,7 +17,7 @@ namespace MyWeb.Data
 		static string strConStr = @"Data Source=THINHBV-PC\MSSQLSERVER_2008;Initial Catalog=hoitamly;User ID=sa;Password=Thinh!@#123;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 		//static string strConStr = @"Data Source=PC-1410-0185;Initial Catalog=hoitamly;User ID=sa;Password=Thinh!@#123;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 #else
-		static string strConStr = @"Data Source=.;Initial Catalog=damyngh1_ht;User ID=damyngh1_ht;Password=oEir595~;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
+		static string strConStr = @"Data Source=.;Initial Catalog=shareco1_hoitamly;User ID=shareco1_hoitamly;Password=Wgt20z!6;Pooling=true;Max Pool Size=256;Min Pool Size=16;";
 #endif
 		/// <summary>
         /// Global SQL server connection

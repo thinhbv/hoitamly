@@ -13,15 +13,6 @@ namespace MyWeb.Modules.News {
     public partial class NewsDetail {
         
         /// <summary>
-        /// ltrCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrCategory;
-        
-        /// <summary>
         /// idU_OtherGroupNews control.
         /// </summary>
         /// <remarks>

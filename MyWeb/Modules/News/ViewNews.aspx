@@ -8,9 +8,9 @@
 		<asp:Repeater ID="rptNews" runat="server">
 			<ItemTemplate>
 				<div class="article">
-					<div class="photo" style='display: yes;'>
+					<div class="photo">
 						<a href="<%#Eval("Link").ToString() %>">
-							<img src="<%#Eval("Image").ToString() %>" title="<%#Eval("Name").ToString() %>" alt="<%#Eval("Name").ToString() %>" />
+							<img src="<%#StringClass.ThumbImage(Eval("Image").ToString()) %>" title="<%#Eval("Name").ToString() %>" alt="<%#Eval("Name").ToString() %>" />
 						</a>
 					</div>
 					<h4>
@@ -19,7 +19,7 @@
 						<%#DateTimeClass.ConvertDate(Eval("Date").ToString(),"dd/MM/yyyy - HH:mm") %>
 					</p>
 					<div class="sapo">
-						<%#StringClass.FormatContentNews(Eval("Content").ToString(), 200) %>
+						<%#StringClass.FormatContentNews(Eval("Content").ToString(), 150) %>
 					</div>
 				</div>
 			</ItemTemplate>

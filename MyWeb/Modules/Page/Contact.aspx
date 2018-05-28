@@ -18,23 +18,23 @@
 				if (jQuery('#<%= txtTitle.ClientID %>').val().trim() == "") {
 					alert("Vui lòng nhập tiêu đề của bạn!");
 					jQuery('#<%= txtTitle.ClientID %>').focus()
-        			return false
+					return false
 				}
 
 				if (jQuery('#<%= txtHoTen.ClientID %>').val().trim() == "") {
 					alert("Vui lòng nhập họ tên của bạn!");
 					jQuery('#<%= txtHoTen.ClientID %>').focus()
-        			return false
+					return false
 				}
 				if (jQuery('#<%= txtEmail.ClientID %>').val().trim() == "") {
 					alert("Vui lòng nhập email của bạn!");
 					jQuery('#<%= txtEmail.ClientID %>').focus()
-        			return false
+					return false
 				}
 				if (jQuery('#<%= txtDetail.ClientID %>').val().trim() == "") {
 					alert("Vui lòng nhập nội dung!");
 					jQuery('#<%= txtDetail.ClientID %>').focus()
-        			return false
+					return false
 				}
 				return true;
 			});
@@ -44,110 +44,85 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 	<div id="columns" class="container">
 		<!-- Breadcrumb -->
-		<div class="breadcrumb clearfix">
-			<ul>
-				<li class="home">
-					<a class="home" href="/" title="Return to Home">
-						<i class="fa fa-home"></i>
-					</a>
-				</li>
-				<li class="crumb-1 last">Liên hệ
-				</li>
-			</ul>
+		<div class="page-category">
+			<h2>
+				<asp:Label ID="lblContact" runat="server" Text="<%$Resources:Resource.Language, lblContact%>"></asp:Label></h2>
 		</div>
 		<!-- /Breadcrumb -->
 		<div class="row">
-			<div class="large-left col-sm-12">
-				<div class="row">
-					<div id="center_column" class="center_column col-xs-12 col-sm-9">
-						<div itemtype="#" itemscope="" id="sdsblogArticle" class="blog-post">
-							<h1 class="title_block_exclusive">Liên hệ với chúng tôi</h1>
-							<div class="sdsarticle-des">
-								<div style="border-bottom: 1px solid #d58134; padding-bottom: 10px">
-									<div style="margin-bottom: 10px">
-										<asp:Literal ID="ltrContact" runat="server"></asp:Literal>
-									</div>
-								</div>
-								<br />
-								<table class="form-contact" cellpadding="0" cellspacing="0">
-									<tr>
-										<th>Tiêu đề (*):
-										</th>
-										<td>
-											<asp:TextBox ID="txtTitle" runat="server"></asp:TextBox>
-										</td>
-									</tr>
-									<tr>
-										<td style="height: 10px" colspan="2"></td>
-									</tr>
-									<tr>
-										<th>Họ tên (*):
-										</th>
-										<td>
-											<asp:TextBox ID="txtHoTen" runat="server"></asp:TextBox>
-										</td>
-									</tr>
-									<tr>
-										<td style="height: 10px" colspan="2"></td>
-									</tr>
-									<tr>
-										<th>Email (*):
-										</th>
-										<td>
-											<asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-										</td>
-									</tr>
-									<tr>
-										<td style="height: 10px" colspan="2"></td>
-									</tr>
-									<tr>
-										<th>Điện thoại:
-										</th>
-										<td>
-											<asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
-										</td>
-									</tr>
-									<tr>
-										<td style="height: 10px" colspan="2"></td>
-									</tr>
-									<tr>
-										<th>Địa chỉ:
-										</th>
-										<td>
-											<asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
-										</td>
-									</tr>
-									<tr>
-										<td style="height: 10px" colspan="2"></td>
-									</tr>
-									<tr>
-										<th>Nội dung (*):
-										</th>
-										<td>
-											<asp:TextBox ID="txtDetail" runat="server" TextMode="MultiLine" Width="400px" Height="100px"></asp:TextBox>
-										</td>
-									</tr>
-									<tr>
-										<th></th>
-										<td>
-											<i>(Lưu ý: * chỉ định những thông tin bắt buộc)</i>
-										</td>
-									</tr>
-								</table>
-								<div class="button-contact">
-									<asp:Button ID="btnSend" runat="server" Text="SEND" OnClick="btnSend_Click" CssClass="btn btn-default button-search" />
-									<button type="button" id="tm_submit_search" class="btn btn-default button-search"><span>CLEAR</span></button>
-								</div>
-							</div>
-							<!--sdsarticle-des-->
-						</div>
-						<!--blog-post-->
-					</div>
-					<!-- #center_column -->
-				</div>
-				<!--.row-->
+			<div style="margin-bottom: 10px">
+				<asp:Literal ID="ltrContact" runat="server"></asp:Literal>
 			</div>
-			<!--.large-left-->
+			<br />
+			<table class="form-contact" cellpadding="0" cellspacing="0">
+				<tr>
+					<th><asp:Label ID="lblContactTitle" runat="server" Text="<%$Resources:Resource.Language, lblContactTitle %>"></asp:Label>
+					</th>
+					<td>
+						<asp:TextBox ID="txtTitle" runat="server"></asp:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 10px" colspan="2"></td>
+				</tr>
+				<tr>
+					<th><asp:Label ID="lblContactName" runat="server" Text="<%$Resources:Resource.Language, lblContactName %>"></asp:Label>
+					</th>
+					<td>
+						<asp:TextBox ID="txtHoTen" runat="server"></asp:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 10px" colspan="2"></td>
+				</tr>
+				<tr>
+					<th>Email (*):
+					</th>
+					<td>
+						<asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 10px" colspan="2"></td>
+				</tr>
+				<tr>
+					<th><asp:Label ID="lblPhone" runat="server" Text="<%$Resources:Resource.Language, lblPhone %>"></asp:Label>
+					</th>
+					<td>
+						<asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 10px" colspan="2"></td>
+				</tr>
+				<tr>
+					<th>Địa chỉ:<asp:Label ID="lblAdress" runat="server" Text="<%$Resources:Resource.Language, lblAdress %>"></asp:Label>
+					</th>
+					<td>
+						<asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 10px" colspan="2"></td>
+				</tr>
+				<tr>
+					<th><asp:Label ID="lblDetail" runat="server" Text="<%$Resources:Resource.Language, lblDetail %>"></asp:Label>
+					</th>
+					<td>
+						<asp:TextBox ID="txtDetail" runat="server" TextMode="MultiLine" Width="400px" Height="100px"></asp:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+						<i><asp:Label ID="lblNote" runat="server" Text="<%$Resources:Resource.Language, lblNote %>"></asp:Label></i>
+					</td>
+				</tr>
+			</table>
+			<div class="button-contact">
+				<asp:Button ID="btnSend" runat="server" Text="SEND" OnClick="btnSend_Click" CssClass="button" />
+				<input type="button" id="tm_submit_search" class="button" value="Clear" />
+			</div>
 		</div>
 		<!--.row-->
 	</div>

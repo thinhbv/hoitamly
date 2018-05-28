@@ -40,13 +40,13 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.LinkButton lbtAddT;
         
         /// <summary>
-        /// grdGroupImages control.
+        /// grdGroupNews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid grdGroupImages;
+        protected global::System.Web.UI.WebControls.DataGrid grdGroupNews;
         
         /// <summary>
         /// lbtAddB control.

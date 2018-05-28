@@ -17,10 +17,10 @@
 					<asp:LinkButton CssClass="vadd" ID="lbtAddT" runat="server" OnClick="Update_Click">Cập nhật</asp:LinkButton></li>
 			</ul>
 		</div>
-		<asp:DataGrid ID="grdGroupImages" runat="server" Width="100%" CssClass="TableView"
+		<asp:DataGrid ID="grdGroupNews" runat="server" Width="100%" CssClass="TableView"
 			AutoGenerateColumns="False" AllowPaging="True" PageSize="40" PagerStyle-Mode="NumericPages"
-			PagerStyle-HorizontalAlign="Center" OnItemDataBound="grdGroupImages_ItemDataBound"
-			 OnPageIndexChanged="grdGroupImages_PageIndexChanged">
+			PagerStyle-HorizontalAlign="Center" OnItemDataBound="grdGroupNews_ItemDataBound"
+			OnPageIndexChanged="grdGroupNews_PageIndexChanged">
 			<HeaderStyle CssClass="trHeader"></HeaderStyle>
 			<ItemStyle CssClass="trOdd"></ItemStyle>
 			<AlternatingItemStyle CssClass="trEven"></AlternatingItemStyle>
@@ -35,6 +35,7 @@
 					<ItemStyle CssClass="tdCenter"></ItemStyle>
 				</asp:TemplateColumn>
 				<asp:BoundColumn DataField="Id" HeaderText="Id" Visible="False" />
+				<asp:BoundColumn DataField="Level" HeaderText="Level" Visible="False" />
 				<asp:TemplateColumn ItemStyle-CssClass="Text">
 					<HeaderTemplate>
 						Các chuyên mục tin tức

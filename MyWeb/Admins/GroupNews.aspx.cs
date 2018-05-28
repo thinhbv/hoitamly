@@ -29,7 +29,21 @@ namespace MyWeb.Admins
 
         private void BindGrid()
         {
-			grdGroupNews.DataSource = GroupNewsService.GroupNews_GetByTop("", "[Index] = 0", "Level, Ord");
+			if (Session["IsAdmin"] != null && Session["IsAdmin"].ToString() == "1")
+			{
+				grdGroupNews.DataSource = GroupNewsService.GroupNews_GetByTop("", "[Index] = 0", "Level, Ord");
+			}
+			else
+			{
+				if (Session["Commission"] != null && string.IsNullOrEmpty(Session["Commission"].ToString()) == false)
+				{
+					grdGroupNews.DataSource = GroupNewsService.GroupNews_GetByTop("", "[Index] = 0 AND Id IN (" + Session["Commission"].ToString() + ")", "Level, Ord");
+				}
+				else
+				{
+					return;
+				}
+			}
             grdGroupNews.DataBind();
             if (grdGroupNews.PageCount <= 1)
             {

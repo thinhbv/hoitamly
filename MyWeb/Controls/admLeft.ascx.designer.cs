@@ -13,6 +13,15 @@ namespace MyWeb.Controls {
     public partial class admLeft {
         
         /// <summary>
+        /// table1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable table1;
+        
+        /// <summary>
         /// div1 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace MyWeb.Controls {
         protected global::System.Web.UI.WebControls.LinkButton lbtNews;
         
         /// <summary>
+        /// table2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable table2;
+        
+        /// <summary>
         /// div2 control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,15 @@ namespace MyWeb.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtImages;
+        
+        /// <summary>
+        /// table3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable table3;
         
         /// <summary>
         /// div3 control.
@@ -209,6 +236,15 @@ namespace MyWeb.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// lbtLinkWeb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtLinkWeb;
         
         /// <summary>
         /// lbtUploadImages control.

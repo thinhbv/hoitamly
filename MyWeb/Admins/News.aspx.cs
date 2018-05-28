@@ -15,29 +15,46 @@ namespace MyWeb.Admins
         static string Id = "";
         static bool Insert = false;
         static string where = "";
-        private string listGroupId = string.Empty;
+		private static string listGroupId = string.Empty;
+		private static string isAdmins = "0";
         SqlDataProvider sql = new SqlDataProvider();
         protected void Page_Load(object sender, EventArgs e)
         {
+			if (Session["IsAdmin"] != null)
+			{
+				isAdmins = Session["IsAdmin"].ToString();
+			}
+			if (Session["Commission"] != null && isAdmins == "0")
+			{
+				listGroupId = Session["Commission"].ToString();
+			}
             if (!IsPostBack)
             {
                 lbtDeleteT.Attributes.Add("onClick", "javascript:return confirm('Bạn có muốn xóa?');");
                 lbtDeleteB.Attributes.Add("onClick", "javascript:return confirm('Bạn có muốn xóa?');");
                 NumberClass.OnlyInputNumber(txtOrd);
-                LoadGroupNewsDropDownList();
+				LoadGroupNewsDropDownList(ddlGroupNews);
+				LoadGroupNewsDropDownList(drlnhom);
                 BindGrid(where);
             }
         }
 
         private void BindGrid(string where)
         {
-            if (string.IsNullOrEmpty(listGroupId))
-            {
-                return;
+			if (string.IsNullOrEmpty(listGroupId) && isAdmins == "0")
+			{
+				return;
             }
-            if (drlnhom.SelectedValue == "0")
+            if (drlnhom.SelectedValue == "")
             {
-                grdNews.DataSource = NewsService.News_GetByTop("", "GroupNewsId IN (" + listGroupId + ")", "Date desc");
+				if (isAdmins == "1")
+				{
+					grdNews.DataSource = NewsService.News_GetByTop("","GroupNewsId IN (Select Id from GroupNews WHERE [Index] = 0)","Date DESC");
+				}
+				else
+				{
+					grdNews.DataSource = NewsService.News_GetByTop("", "GroupNewsId IN (" + listGroupId + ")", "Date desc");
+				}
                 grdNews.DataBind();
                 if (grdNews.PageCount <= 1)
                 {
@@ -56,7 +73,7 @@ namespace MyWeb.Admins
                 {
                     level = dtG.Rows[0]["Level"].ToString();
                 }
-                where = "GroupNewsId in (Select Id From GroupNews Where left(Level,len('" + level + "'))='" + level + "')";
+                where = "GroupNewsId in (Select Id From GroupNews Where [Index]=0 AND left(Level,len('" + level + "'))='" + level + "')";
                 DataTable dt = new DataTable();
                 dt = NewsService.News_GetByTop("", where, "Date Desc");
                 grdNews.DataSource = dt;
@@ -72,26 +89,31 @@ namespace MyWeb.Admins
             }
         }
 
-        private void LoadGroupNewsDropDownList()
+        private void LoadGroupNewsDropDownList(DropDownList ddl)
         {
-            ddlGroupNews.Items.Clear();
-            ddlGroupNews.Items.Add(new ListItem("--Chọn nhóm tin--", ""));
-            drlnhom.Items.Clear();
-            drlnhom.Items.Add(new ListItem("--Chọn nhóm tin--", "0"));
+			ddl.Items.Clear();
+			ddl.Items.Add(new ListItem("--Chọn nhóm tin--", ""));
             DataTable dt = new DataTable();
-            dt = GroupNewsService.GroupNews_GetByTop("","Active = 1 AND [Index] = 0","Level, Ord");
+			if (Session["IsAdmin"] != null && Session["IsAdmin"].ToString() == "1")
+			{
+				dt = GroupNewsService.GroupNews_GetByTop("", "Active = 1 AND [Index] = 0", "Level, Ord");
+			}
+			else
+			{
+				if (Session["Commission"] != null && string.IsNullOrEmpty(Session["Commission"].ToString()) == false)
+				{
+					dt = GroupNewsService.GroupNews_GetByTop("", "Active = 1 AND [Index] = 0 AND Id IN (" + Session["Commission"].ToString() + ")", "Level");
+				}
+				else
+				{
+					return;
+				}
+			}
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ddlGroupNews.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), dt.Rows[i]["Id"].ToString()));
-                drlnhom.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), dt.Rows[i]["Id"].ToString()));
-                listGroupId += dt.Rows[i]["Id"].ToString() + ",";
+				ddl.Items.Add(new ListItem(Common.StringClass.ShowNameLevel(dt.Rows[i]["Name"].ToString(), dt.Rows[i]["Level"].ToString()), dt.Rows[i]["Id"].ToString()));
             }
-            if (string.IsNullOrEmpty(listGroupId) == false)
-            {
-                listGroupId = listGroupId.Substring(0, listGroupId.Length - 1);
-            }
-            ddlGroupNews.DataBind();
-            drlnhom.DataBind();
+			ddl.DataBind();
         }
 
         protected void grdNews_ItemDataBound(object sender, DataGridItemEventArgs e)
@@ -146,7 +168,7 @@ namespace MyWeb.Admins
                     txtDate.Text = DateTimeClass.ConvertDateTime(dt.Rows[0]["Date"].ToString());
                     txtOrd.Text = dt.Rows[0]["Ord"].ToString();
                     chkActive.Checked = dt.Rows[0]["Active"].ToString() == "1" || dt.Rows[0]["Active"].ToString() == "True";
-                    LoadGroupNewsDropDownList();
+					LoadGroupNewsDropDownList(ddlGroupNews);
 					PageHelper.LoadDropDownListNewsPosition(ddlPosition);
 					PageHelper.LoadDropDownListLanguage(ddlLanguage);
 					ddlLanguage.SelectedValue = dt.Rows[0]["Language"].ToString();
@@ -173,8 +195,9 @@ namespace MyWeb.Admins
         protected void AddButton_Click(object sender, EventArgs e)
         {
             pnUpdate.Visible = true;
-            ControlClass.ResetControlValues(this);
-			LoadGroupNewsDropDownList();
+			ControlClass.ResetControlValues(this);
+			LoadGroupNewsDropDownList(ddlGroupNews);
+			LoadGroupNewsDropDownList(drlnhom);
 			PageHelper.LoadDropDownListNewsPosition(ddlPosition);
 			PageHelper.LoadDropDownListLanguage(ddlLanguage);
             txtDate.Text = DateTimeClass.ConvertDateTime(DateTime.Now, "dd/MM/yyyy hh:mm:ss tt");

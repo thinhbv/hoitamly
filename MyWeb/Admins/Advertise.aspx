@@ -140,7 +140,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <span style="color:Red; font-size:11px;">Ảnh banner giữa (916x354) - Ảnh Công nghệ và Sản phẩm (106x66) - Ảnh quảng cáo hai bên (164x483)</span>
+                    <span style="color:Red; font-size:11px;">Ảnh đối tác 104x55(px)</span>
                 </td>
             </tr>
             <tr>

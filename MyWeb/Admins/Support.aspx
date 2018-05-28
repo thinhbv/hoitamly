@@ -48,7 +48,7 @@
                             Visible="true" />
                         <asp:BoundColumn DataField="Skype" HeaderText="Nick Skype" ItemStyle-CssClass="TextShort"
                             Visible="true" />
-                        <asp:TemplateColumn ItemStyle-CssClass="Active">
+                        <asp:TemplateColumn ItemStyle-CssClass="Center">
                             <HeaderTemplate>
                                 Kích hoạt</HeaderTemplate>
                             <ItemTemplate>

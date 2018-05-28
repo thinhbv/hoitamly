@@ -75,7 +75,7 @@ namespace MyWeb.Controls
 					DataTable dtTmp = PageHelper.ModifyData(drRows.CopyToDataTable());
 					DataRow dr = dtTmp.Rows[0];
 					ltrNews.Text += "<a href='" + dr["Link"].ToString() + "'>";
-					ltrNews.Text += "<img src='" + dr["Image"].ToString() + "' title='" + dr["Name"].ToString() + "' alt='" + dr["Name"].ToString() + "' /></a>";
+					ltrNews.Text += "<img src='" + StringClass.ThumbImage(dr["Image"].ToString()) + "' title='" + dr["Name"].ToString() + "' alt='" + dr["Name"].ToString() + "' /></a>";
 					ltrNews.Text += "<h4><a href='" + dr["Link"].ToString() + "' title='" + dr["Name"].ToString() + "'>" + dr["Name"].ToString() + "</a></h4>";
 					dr.Delete();
 					dtTmp.AcceptChanges();

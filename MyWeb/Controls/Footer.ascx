@@ -6,6 +6,5 @@
 			<span>|</span>
 		</ItemTemplate>
 	</asp:Repeater>
-	<a href="/sitepages/rsshome">RSS</a>
 </div>
 <asp:Literal ID="ltrInfo" runat="server"></asp:Literal>

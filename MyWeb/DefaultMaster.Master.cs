@@ -22,6 +22,24 @@ namespace MyWeb
 					DataTable dtDoiTac = AdvertiseService.Advertise_GetByPosition("3");
 					rptDoiTac.DataSource = dtDoiTac;
 					rptDoiTac.DataBind();
+
+					DataTable dtSupport = SupportService.Support_GetByTop("2", "Active=1", "");
+					if (dtSupport.Rows.Count > 0)
+					{
+						for (int i = 0; i < dtSupport.Rows.Count; i++)
+						{
+							DataRow dr = dtSupport.Rows[i];
+							if (i == dtSupport.Rows.Count - 1)
+							{
+								ltrName.Text += string.Format("{0}: {1}", dr["Name"].ToString(), dr["Phone"].ToString());
+							}
+							else
+							{
+								ltrName.Text += string.Format("{0}: {1} | ", dr["Name"].ToString(), dr["Phone"].ToString());
+							}
+							
+						}
+					}
 				}
 				catch (Exception ex)
 				{

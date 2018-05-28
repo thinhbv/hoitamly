@@ -16,7 +16,11 @@ namespace MyWeb.Modules.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+			Session.Remove("FullName");
+			Session.Remove("UserName");
+			Session.Remove("IsAdmin");
+			Session.Remove("Commission");
+			Session.Remove("IsAuthorized");
         }
 
         protected void btnLogon_Click(object sender, EventArgs e)
@@ -26,13 +30,14 @@ namespace MyWeb.Modules.Page
 				string UId = txtUsername.Text;
 				string PId = txtPassword.Text;
 				DataTable dt = new DataTable();
-				dt = UserService.User_GetByTop("", "UserName='" + UId + "' and Password='" + PId + "'", "");
+				dt = UserService.User_GetByTop("", "UserName='" + StringClass.SqlInjection(UId) + "' and Password='" + StringClass.SqlInjection(PId) + "'", "");
 				if (dt.Rows.Count > 0)
 				{
 					FormsAuthentication.SetAuthCookie(UId, false);
 					Session["FullName"] = dt.Rows[0]["Name"].ToString().Trim();
 					Session["UserName"] = dt.Rows[0]["UserName"].ToString().Trim();
 					Session["IsAdmin"] = dt.Rows[0]["Admin"].ToString();
+					Session["Commission"] = dt.Rows[0]["Commission"].ToString();
 					Session["IsAuthorized"] = true;
 					Response.Redirect(GlobalClass.ApplicationPath + "admin", false);
 				}

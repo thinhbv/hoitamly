@@ -5,6 +5,7 @@ using System.Web.UI;
 using MyWeb.Data;
 using MyWeb.Business;
 using MyWeb.Common;
+using System.Data.SqlClient;
 
 namespace MyWeb.Modules.News
 {
@@ -15,15 +16,19 @@ namespace MyWeb.Modules.News
 		protected string titleReleate = string.Empty;
 		protected string sDetail = string.Empty;
 		protected string sDateTime = string.Empty;
-        string groupName = string.Empty;
-        string id = string.Empty;
+		protected string groupName = string.Empty;
+        protected string id = string.Empty;
 		protected string Lang = "vi";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.RouteData.Values["Id"] != null)
             {
                 id = Page.RouteData.Values["Id"] as string;
-			} 
+			}
+			if (Microsoft.VisualBasic.Information.IsNumeric(id) == false)
+			{
+				return;
+			}
             if (!IsPostBack)
             {
                 try
@@ -35,7 +40,13 @@ namespace MyWeb.Modules.News
                     DataTable dtNews = NewsService.News_GetById(id);
                     if (dtNews.Rows.Count > 0)
                     {
+						SqlDataProvider sql = new SqlDataProvider();
+						string view = dtNews.Rows[0]["Views"].ToString();
+						view = (int.Parse(view) + 1).ToString();
+						string sSQL = "Update News set Views=" + view +" Where Id=" + id;
+						sql.ExecuteNonQuery(sSQL);
 						sTitleName = dtNews.Rows[0]["Name"].ToString();
+						Page.Title = sTitleName;
 						sContent = dtNews.Rows[0]["Content"].ToString();
 						sDetail = dtNews.Rows[0]["Detail"].ToString();
 						sDateTime = DateTimeClass.ConvertDate(dtNews.Rows[0]["Date"].ToString(),"dd/MM/yyyy - HH:mm");
@@ -43,6 +54,8 @@ namespace MyWeb.Modules.News
 						DataTable dtG = GroupNewsService.GroupNews_GetById(dtNews.Rows[0]["GroupNewsId"].ToString());
 						if (dtG.Rows.Count > 0)
 						{
+							idU_OtherGroupNews.Level = dtG.Rows[0]["Level"].ToString();
+							groupName = dtG.Rows[0]["Name"].ToString();
 							idU_OtherGroupNews.Level = dtG.Rows[0]["Level"].ToString();
 						}
 
@@ -55,7 +68,7 @@ namespace MyWeb.Modules.News
                         }
 						dtNewsReleate.Clear();
 						dtNewsReleate.Dispose();
-						DataTable dtLastNews = NewsService.News_GetByTop("10", "Id <> " + id + " AND Active = 1 AND Language='" + Lang + "'", "Date Desc");
+						DataTable dtLastNews = NewsService.News_GetByTop("10", "Id <> " + id + "  AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Active = 1 AND Language='" + Lang + "'", "Date Desc");
 						dtLastNews = PageHelper.ModifyData(dtLastNews);
 						DataTable dtLeft = dtLastNews.Clone();
 						for (int i = 0; i < dtLastNews.Rows.Count; i++)

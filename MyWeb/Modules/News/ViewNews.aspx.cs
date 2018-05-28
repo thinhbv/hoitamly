@@ -40,6 +40,7 @@ namespace MyWeb.Modules.News
                     if (dtGrp.Rows.Count > 0)
                     {
 						groupName = dtGrp.Rows[0]["Name"].ToString();
+						Page.Title = groupName;
 						Label lblName = (Label)Master.FindControl("lblName");
 						if (lblName != null)
 						{
@@ -72,13 +73,13 @@ namespace MyWeb.Modules.News
 			int totalPage = totalcount / int.Parse(perpage);
 			int currPage;
 			string urlOrigin = Request.Path;
-			if (urlOrigin.IndexOf("?") > -1)
+			if (urlOrigin.IndexOf("trang") > -1)
 			{
-				urlOrigin = urlOrigin + "&" + Consts.CON_PARAM_URL_PAGE + "=";
+				urlOrigin = urlOrigin.Substring(0, urlOrigin.LastIndexOf("-") + 1);
 			}
 			else
 			{
-				urlOrigin = urlOrigin + "?" + Consts.CON_PARAM_URL_PAGE + "=";
+				urlOrigin = urlOrigin + Consts.CON_PARAM_URL_PAGE + "-";
 			}
 
 			if (int.TryParse(pagenum, out currPage) == false)
@@ -92,13 +93,13 @@ namespace MyWeb.Modules.News
 			if (currPage == 1)
 			{
 				strPaging += "<li id='pagination_previous_bottom' class='disabled pagination_previous'>\n";
-				strPaging += "<span><i class='fa fa-chevron-left'></i><b>Previous</b></span></li>\n";
+				strPaging += "<span><b><<</b></span></li>\n";
 			}
 			else
 			{
 				strPaging += "<li id='pagination_previous_bottom' class='pagination_previous'>\n";
 				strPaging += "<a href='" + urlOrigin + (currPage - 1).ToString() + "'>";
-				strPaging += "<b>Previous</b> <i class='fa fa-chevron-left'></i></a></li>\n";
+				strPaging += "<b><<</b> </a></li>\n";
 			}
 			if (totalPage < 6)
 			{
@@ -163,13 +164,13 @@ namespace MyWeb.Modules.News
 			if (currPage == totalPage)
 			{
 				strPaging += "<li id='pagination_next_bottom' class='disabled pagination_next'>\n";
-				strPaging += "<span><i class='fa fa-chevron-right'></i><b>Next</b></span></li>\n";
+				strPaging += "<span><b>>></b></span></li>\n";
 			}
 			else
 			{
 				strPaging += "<li id='pagination_next_bottom' class='pagination_next'>\n";
 				strPaging += "<a href='" + urlOrigin + (currPage + 1).ToString() + "'>";
-				strPaging += "<b>Next</b> <i class='fa fa-chevron-right'></i></a></li>\n";
+				strPaging += "<b>>></b> </a></li>\n";
 			}
 
 			return strPaging;

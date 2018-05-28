@@ -37,27 +37,62 @@ namespace MyWeb.Modules.News
 					{
 						Lang = Request.Cookies["CurrentLanguage"].Value;
 					}
-                    DataTable dtGrp = GroupNewsService.GroupNews_GetById(id);
-                    if (dtGrp.Rows.Count > 0)
-                    {
-						groupName = dtGrp.Rows[0]["Name"].ToString();
-						Label lblName = (Label)Master.FindControl("lblName");
+					Label lblName = (Label)Master.FindControl("lblName"); 
+					if (Lang == "en")
+					{
+						Page.Title = "Documents";
+					}
+					else
+					{
+						Page.Title = "Văn bản Hội";
+					}
+					if (string.IsNullOrEmpty(id))
+					{
 						if (lblName != null)
 						{
-							lblName.Text = groupName;
-						}
-                        totalcount = NewsService.News_GetCount(dtGrp.Rows[0]["Level"].ToString());
-                        DataTable dtNews = NewsService.News_Pagination(pagenum, perpage, dtGrp.Rows[0]["Level"].ToString(), Lang);
-                        if (dtNews.Rows.Count > 0)
-                        {
-                            rptDocument.DataSource = PageHelper.ModifyData(dtNews);
-                            rptDocument.DataBind();
-							int totalPage = totalcount / int.Parse(perpage);
-							if (totalPage > 1)
+							DataTable dtFirst = GroupNewsService.GroupNews_GetByTop("1", "Level=5 AND Active=1 AND Language='" + Lang + "'", "Level");
+							if (dtFirst.Rows.Count > 0)
 							{
-								ltrPaging.Text = GeneralPaging();
+								lblName.Text = dtFirst.Rows[0]["Name"].ToString();
+								Page.Title = lblName.Text;
+								totalcount = NewsService.News_GetCount(dtFirst.Rows[0]["Level"].ToString());
+								DataTable dtNews = NewsService.News_Pagination(pagenum, perpage, dtFirst.Rows[0]["Level"].ToString(), Lang);
+								if (dtNews.Rows.Count > 0)
+								{
+									rptDocument.DataSource = PageHelper.ModifyData(dtNews);
+									rptDocument.DataBind();
+									int totalPage = totalcount / int.Parse(perpage);
+									if (totalPage > 1)
+									{
+										ltrPaging.Text = GeneralPaging();
+									}
+								}
+							}	
+						}
+					}
+					else
+					{
+						DataTable dtGrp = GroupNewsService.GroupNews_GetById(id);
+						if (dtGrp.Rows.Count > 0)
+						{
+							groupName = dtGrp.Rows[0]["Name"].ToString();
+							if (lblName != null)
+							{
+								lblName.Text = groupName;
 							}
-                        }
+							totalcount = NewsService.News_GetCount(dtGrp.Rows[0]["Level"].ToString());
+							DataTable dtNews = NewsService.News_Pagination(pagenum, perpage, dtGrp.Rows[0]["Level"].ToString(), Lang);
+							if (dtNews.Rows.Count > 0)
+							{
+								rptDocument.DataSource = PageHelper.ModifyData(dtNews);
+								rptDocument.DataBind();
+								int totalPage = totalcount / int.Parse(perpage);
+								if (totalPage > 1)
+								{
+									ltrPaging.Text = GeneralPaging();
+								}
+							}
+						}
 					}
 				}
 				catch (Exception ex)
@@ -74,11 +109,11 @@ namespace MyWeb.Modules.News
 			string urlOrigin = Request.Path;
 			if (urlOrigin.IndexOf("?") > -1)
 			{
-				urlOrigin = urlOrigin + "&" + Consts.CON_PARAM_URL_PAGE + "=";
+				urlOrigin = urlOrigin.Substring(0, urlOrigin.LastIndexOf("-") + 1);
 			}
 			else
 			{
-				urlOrigin = urlOrigin + "?" + Consts.CON_PARAM_URL_PAGE + "=";
+				urlOrigin = urlOrigin + Consts.CON_PARAM_URL_PAGE + "-";
 			}
 
 			if (int.TryParse(pagenum, out currPage) == false)

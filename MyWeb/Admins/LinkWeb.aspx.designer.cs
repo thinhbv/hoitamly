@@ -10,16 +10,7 @@
 namespace MyWeb.Admins {
     
     
-    public partial class User {
-        
-        /// <summary>
-        /// updatePage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePage;
+    public partial class LinkWeb {
         
         /// <summary>
         /// pnView control.
@@ -58,13 +49,13 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.LinkButton lbtRefreshT;
         
         /// <summary>
-        /// grdUser control.
+        /// grdLinkWeb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid grdUser;
+        protected global::System.Web.UI.WebControls.DataGrid grdLinkWeb;
         
         /// <summary>
         /// lbtAddB control.
@@ -148,94 +139,67 @@ namespace MyWeb.Admins {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
         
         /// <summary>
-        /// lblUsername control.
+        /// lblLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsername;
+        protected global::System.Web.UI.WebControls.Label lblLink;
         
         /// <summary>
-        /// txtUsername control.
+        /// txtLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtLink;
         
         /// <summary>
-        /// lblPassword control.
+        /// lblLang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
+        protected global::System.Web.UI.WebControls.Label lblLang;
         
         /// <summary>
-        /// txtPassword control.
+        /// ddlLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanguage;
         
         /// <summary>
-        /// lblemail control.
+        /// lblOrd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblemail;
+        protected global::System.Web.UI.WebControls.Label lblOrd;
         
         /// <summary>
-        /// txtEmail control.
+        /// txtOrd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtOrd;
         
         /// <summary>
-        /// Phone control.
+        /// rfvOrd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Phone;
-        
-        /// <summary>
-        /// txtPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhone;
-        
-        /// <summary>
-        /// lblAdmin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAdmin;
-        
-        /// <summary>
-        /// chkAdmin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkAdmin;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvOrd;
         
         /// <summary>
         /// lblActive control.

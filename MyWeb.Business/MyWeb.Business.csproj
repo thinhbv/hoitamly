@@ -50,6 +50,7 @@
     <Compile Include="GroupNewsService.cs" />
     <Compile Include="GroupProductService.cs" />
     <Compile Include="ImagesService.cs" />
+    <Compile Include="LinkWebService.cs" />
     <Compile Include="NewsService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="ProductService.cs" />

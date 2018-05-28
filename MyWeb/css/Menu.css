@@ -2,10 +2,9 @@
 #header_menu
 {
     clear: both;
-    width: 1000px;
+    width: 1020px;
     margin: 0 auto;
     height: auto;
-    margin-top: 5px;
     float: left;
     font-family: Arial;
    
@@ -19,20 +18,20 @@
     padding-top:2px;
     font-style: normal;
     clear: both;
-    width: 998px;
+    width: 1018px;
     list-style: none;
     border-top: solid 1px #e0e0e0;
     border-left: solid 1px #e0e0e0;
     border-right: solid 1px #e0e0e0;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-     background: -moz-linear-gradient(top,#53AB45 0%,#20940D 100%);
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#53AB45),color-stop(100%,#20940D));
-    background: -webkit-linear-gradient(top,#53AB45 0%,#20940D 100%);
-    background: -o-linear-gradient(top,#53AB45 0%,#20940D 100%);
-    background: -ms-linear-gradient(top,#53AB45 0%,#20940D 100%);
-    background: linear-gradient(top,#53AB45 0%,#20940D 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#53AB45',endColorstr='#20940D',GradientTyp)
+    background: -moz-linear-gradient(top,#53AB45 0%,#71bf45 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#53AB45),color-stop(100%,#71bf45));
+    background: -webkit-linear-gradient(top,#53AB45 0%,#71bf45 100%);
+    background: -o-linear-gradient(top,#53AB45 0%,#71bf45 100%);
+    background: -ms-linear-gradient(top,#53AB45 0%,#71bf45 100%);
+    background: linear-gradient(top,#53AB45 0%,#71bf45 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#53AB45',endColorstr='#71bf45',GradientTyp)
 }
 .animatedtabs ul
 {
@@ -93,6 +92,8 @@
     height: 30px;
     font-size: 13px;
     font-weight: bold;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
 }
 .animatedtabs span
 {
@@ -104,7 +105,9 @@
     height: 30px;
     padding: 0 8px;
     font-size: 13px;
-    white-space: nowrap
+    white-space: nowrap;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
 }
 .animatedtabs .selected a, .animatedtabs a:hover
 {
@@ -135,7 +138,7 @@
 }
 #subTopMenu
 {
-    width: 998px;
+    width: 1018px;
     height: 32px;
     clear: both;
     border-bottom-right-radius: 5px;
@@ -217,10 +220,10 @@
 }
 #subTopMenu li.current a, #subTopMenu li a:hover
 {
-    color: #20940D; /* background: url(../images/sub_channel_left.jpg) no-repeat left top;*/
+    color: #71bf45; /* background: url(../images/sub_channel_left.jpg) no-repeat left top;*/
 }
 
 #subTopMenu li.current a span, #subTopMenu li a:hover span
 {
-    color: #20940D; /* background: url(../images/sub_channel_right.jpg) no-repeat right top;*/
+    color: #71bf45; /* background: url(../images/sub_channel_right.jpg) no-repeat right top;*/
 }
