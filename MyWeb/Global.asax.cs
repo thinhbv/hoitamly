@@ -23,7 +23,8 @@ namespace MyWeb
 			RouteTable.Routes.MapPageRoute("GroupDocument", "van-ban/{GroupId}/{title}", "~/Modules/News/DocumentList.aspx");
 			RouteTable.Routes.MapPageRoute("GroupDoc", "van-ban/{GroupId}/{title}/trang-{page}", "~/Modules/News/DocumentList.aspx");
 			RouteTable.Routes.MapPageRoute("Doc", "van-ban-hoi", "~/Modules/News/DocumentList.aspx");
-			RouteTable.Routes.MapPageRoute("Document", "van-ban/{groupName}/{Id}/{title}", "~/Modules/News/NewsDetail.aspx");
+			RouteTable.Routes.MapPageRoute("DocPage", "van-ban-hoi/trang-{page}", "~/Modules/News/DocumentList.aspx");
+			RouteTable.Routes.MapPageRoute("Document", "van-ban/{groupName}/{Id}/{title}", "~/Modules/News/DocumentDetail.aspx");
 			RouteTable.Routes.MapPageRoute("Images", "thu-vien-anh", "~/Modules/Images/ImageList.aspx");
 			RouteTable.Routes.MapPageRoute("GroupImages", "{GroupId}/thu-vien-anh", "~/Modules/Images/ImageList.aspx");
 			RouteTable.Routes.MapPageRoute("Videos", "video-hoi", "~/Modules/Videos/VideosList.aspx");

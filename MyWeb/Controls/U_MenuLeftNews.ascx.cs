@@ -29,7 +29,7 @@ namespace MyWeb.Controls
 					DataTable dtVanBan = NewsService.News_GetByTop("", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=1 AND Language='" + Lang + "') AND Language='" + Lang + "'", "Date DESC");
 					if (dtVanBan.Rows.Count > 0)
 					{
-						rptVanBan.DataSource = PageHelper.ModifyData(dtVanBan);
+						rptVanBan.DataSource = PageHelper.ModifyData(dtVanBan, Consts.CON_VAN_BAN);
 						rptVanBan.DataBind();
 						rptVanBan01.DataSource = dtVanBan;
 						rptVanBan01.DataBind();
@@ -45,7 +45,7 @@ namespace MyWeb.Controls
 						rptVideo.DataBind();
 					}
 					DataTable dtNews = NewsService.News_GetByTop("10", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Language='" + Lang + "'", "Views DESC");
-					rptReadMost.DataSource = PageHelper.ModifyData(dtNews);
+					rptReadMost.DataSource = PageHelper.ModifyData(dtNews, Consts.CON_TIN_TUC);
 					rptReadMost.DataBind();
 
 					DataTable dtLink = LinkWebService.LinkWeb_GetByTop("", "Active=1 AND Lang='" + Lang + "'", "Ord");

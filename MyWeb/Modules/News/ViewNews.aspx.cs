@@ -50,7 +50,7 @@ namespace MyWeb.Modules.News
                         DataTable dtNews = NewsService.News_Pagination(pagenum, perpage, dtGrp.Rows[0]["Level"].ToString(), Lang);
                         if (dtNews.Rows.Count > 0)
                         {
-                            rptNews.DataSource = PageHelper.ModifyData(dtNews);
+							rptNews.DataSource = PageHelper.ModifyData(dtNews, Consts.CON_TIN_TUC);
                             rptNews.DataBind();
 							int totalPage = totalcount / int.Parse(perpage);
 							if (totalPage > 1)
@@ -73,13 +73,20 @@ namespace MyWeb.Modules.News
 			int totalPage = totalcount / int.Parse(perpage);
 			int currPage;
 			string urlOrigin = Request.Path;
-			if (urlOrigin.IndexOf("trang") > -1)
+			if (urlOrigin.IndexOf("/trang") > -1)
 			{
 				urlOrigin = urlOrigin.Substring(0, urlOrigin.LastIndexOf("-") + 1);
 			}
 			else
 			{
-				urlOrigin = urlOrigin + Consts.CON_PARAM_URL_PAGE + "-";
+				if (urlOrigin.EndsWith("/"))
+				{
+					urlOrigin = urlOrigin + Consts.CON_PARAM_URL_PAGE + "-";
+				}
+				else
+				{
+					urlOrigin = urlOrigin + "/" + Consts.CON_PARAM_URL_PAGE + "-";
+				}
 			}
 
 			if (int.TryParse(pagenum, out currPage) == false)

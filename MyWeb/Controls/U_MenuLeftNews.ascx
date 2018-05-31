@@ -109,6 +109,7 @@
 					})
 					$(taga).css("color", "#173696");
 					$(taga).css("font-weight", "bold");
+					$('.title').text($(taga).text());
 				}
 			</script>
 		</div>

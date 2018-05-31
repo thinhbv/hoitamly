@@ -29,47 +29,61 @@ namespace MyWeb.Modules.News
 			{
 				return;
 			}
+			if (Request.Cookies["CurrentLanguage"] != null)
+			{
+				Lang = Request.Cookies["CurrentLanguage"].Value;
+			}
             if (!IsPostBack)
             {
                 try
                 {
-					if (Request.Cookies["CurrentLanguage"] != null)
-					{
-						Lang = Request.Cookies["CurrentLanguage"].Value;
-					}
                     DataTable dtNews = NewsService.News_GetById(id);
                     if (dtNews.Rows.Count > 0)
-                    {
-						SqlDataProvider sql = new SqlDataProvider();
-						string view = dtNews.Rows[0]["Views"].ToString();
-						view = (int.Parse(view) + 1).ToString();
-						string sSQL = "Update News set Views=" + view +" Where Id=" + id;
-						sql.ExecuteNonQuery(sSQL);
+					{
 						sTitleName = dtNews.Rows[0]["Name"].ToString();
 						Page.Title = sTitleName;
 						sContent = dtNews.Rows[0]["Content"].ToString();
 						sDetail = dtNews.Rows[0]["Detail"].ToString();
-						sDateTime = DateTimeClass.ConvertDate(dtNews.Rows[0]["Date"].ToString(),"dd/MM/yyyy - HH:mm");
-
-						DataTable dtG = GroupNewsService.GroupNews_GetById(dtNews.Rows[0]["GroupNewsId"].ToString());
-						if (dtG.Rows.Count > 0)
+						sDateTime = DateTimeClass.ConvertDate(dtNews.Rows[0]["Date"].ToString(), "dd/MM/yyyy - HH:mm");
+						if (Request.RawUrl.IndexOf(Consts.CON_VAN_BAN) < 0)
 						{
-							idU_OtherGroupNews.Level = dtG.Rows[0]["Level"].ToString();
-							groupName = dtG.Rows[0]["Name"].ToString();
-							idU_OtherGroupNews.Level = dtG.Rows[0]["Level"].ToString();
-						}
+							SqlDataProvider sql = new SqlDataProvider();
+							string view = dtNews.Rows[0]["Views"].ToString();
+							view = (int.Parse(view) + 1).ToString();
+							string sSQL = "Update News set Views=" + view + " Where Id=" + id;
+							sql.ExecuteNonQuery(sSQL);
 
-						DataTable dtNewsReleate = NewsService.News_GetByTop("4", "Id <> " + id + " AND Active = 1 AND GroupNewsId = '" + dtNews.Rows[0]["GroupNewsId"].ToString() + "' AND Language='" + Lang + "'", "Date Desc");
-                        if (dtNewsReleate.Rows.Count > 0)
-                        {
-                            titleReleate = "Tin liên quan";
-							rptReleative.DataSource = PageHelper.ModifyData(dtNewsReleate);
-							rptReleative.DataBind();
-                        }
-						dtNewsReleate.Clear();
-						dtNewsReleate.Dispose();
+							DataTable dtG = GroupNewsService.GroupNews_GetById(dtNews.Rows[0]["GroupNewsId"].ToString());
+							if (dtG.Rows.Count > 0)
+							{
+								idU_OtherGroupNews.Level = dtG.Rows[0]["Level"].ToString();
+								groupName = dtG.Rows[0]["Name"].ToString();
+							}
+
+							DataTable dtNewsReleate = NewsService.News_GetByTop("4", "Id <> " + id + " AND Active = 1 AND GroupNewsId = '" + dtNews.Rows[0]["GroupNewsId"].ToString() + "' AND Language='" + Lang + "'", "Date Desc");
+							if (dtNewsReleate.Rows.Count > 0)
+							{
+								if (Lang == "en")
+								{
+									titleReleate = "Relative News";
+								}
+								else
+								{
+									titleReleate = "Tin liên quan";
+								}
+								rptReleative.DataSource = PageHelper.ModifyData(dtNewsReleate, Consts.CON_TIN_TUC);
+								rptReleative.DataBind();
+							}
+							dtNewsReleate.Clear();
+							dtNewsReleate.Dispose();
+						}
+						else
+						{
+							idU_OtherGroupNews.Visible = false;
+							rptReleative.Visible = false;
+						}
 						DataTable dtLastNews = NewsService.News_GetByTop("10", "Id <> " + id + "  AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Active = 1 AND Language='" + Lang + "'", "Date Desc");
-						dtLastNews = PageHelper.ModifyData(dtLastNews);
+						dtLastNews = PageHelper.ModifyData(dtLastNews, Consts.CON_TIN_TUC);
 						DataTable dtLeft = dtLastNews.Clone();
 						for (int i = 0; i < dtLastNews.Rows.Count; i++)
 						{

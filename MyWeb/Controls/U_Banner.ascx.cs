@@ -46,7 +46,7 @@ namespace MyWeb.Controls
 					
 					if (dtBanner.Rows.Count > 0)
 					{
-						rptBanner.DataSource = PageHelper.ModifyData(dtBanner);
+						rptBanner.DataSource = PageHelper.ModifyData(dtBanner, Consts.CON_TIN_TUC);
 						rptBanner.DataBind();
 					}
 					dtBanner.Clear();
@@ -55,7 +55,7 @@ namespace MyWeb.Controls
 					DataTable dtNews = NewsService.News_GetByTop("5", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Language='" + Lang + "'", "Date DESC");
 					if (dtNews.Rows.Count > 0)
 					{
-						rptNews.DataSource = PageHelper.ModifyData(dtNews);
+						rptNews.DataSource = PageHelper.ModifyData(dtNews, Consts.CON_TIN_TUC);
 						rptNews.DataBind();
 					}
 					dtNews.Clear();
@@ -63,7 +63,7 @@ namespace MyWeb.Controls
 					dtNews = NewsService.News_GetByTop("4", "Active=1 AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Position=2 AND Language='" + Lang + "'", "Date DESC");
 					if (dtNews.Rows.Count > 0)
 					{
-						rptNews01.DataSource = PageHelper.ModifyData(dtNews);
+						rptNews01.DataSource = PageHelper.ModifyData(dtNews, Consts.CON_TIN_TUC);
 						rptNews01.DataBind();
 					}
 				}

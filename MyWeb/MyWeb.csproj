@@ -244,6 +244,7 @@
     <Content Include="img\warning_bar_0000_us.jpg" />
     <Content Include="InnerError.html" />
     <Content Include="Modules\Images\ImageList.aspx" />
+    <Content Include="Modules\News\DocumentDetail.aspx" />
     <Content Include="Modules\News\DocumentList.aspx" />
     <Content Include="Modules\News\NewsDetail.aspx" />
     <Content Include="Modules\News\ViewNews.aspx" />
@@ -1039,6 +1040,13 @@
     </Compile>
     <Compile Include="Modules\Images\ImageList.aspx.designer.cs">
       <DependentUpon>ImageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\News\DocumentDetail.aspx.cs">
+      <DependentUpon>DocumentDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\News\DocumentDetail.aspx.designer.cs">
+      <DependentUpon>DocumentDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modules\News\DocumentList.aspx.cs">
       <DependentUpon>DocumentList.aspx</DependentUpon>

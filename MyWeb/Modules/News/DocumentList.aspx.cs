@@ -17,7 +17,7 @@ namespace MyWeb.Modules.News
 		protected int totalcount = 0;
 		string id = string.Empty;
 		private string pagenum = "1";
-		private string perpage = "10";
+		private string perpage = "15";
 		protected string Lang = "vi";
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -50,7 +50,7 @@ namespace MyWeb.Modules.News
 					{
 						if (lblName != null)
 						{
-							DataTable dtFirst = GroupNewsService.GroupNews_GetByTop("1", "Level=5 AND Active=1 AND Language='" + Lang + "'", "Level");
+							DataTable dtFirst = GroupNewsService.GroupNews_GetByTop("1", "LEN(Level)=5 AND Active=1 AND [Index]=1 AND Language='" + Lang + "'", "");
 							if (dtFirst.Rows.Count > 0)
 							{
 								lblName.Text = dtFirst.Rows[0]["Name"].ToString();
@@ -59,7 +59,7 @@ namespace MyWeb.Modules.News
 								DataTable dtNews = NewsService.News_Pagination(pagenum, perpage, dtFirst.Rows[0]["Level"].ToString(), Lang);
 								if (dtNews.Rows.Count > 0)
 								{
-									rptDocument.DataSource = PageHelper.ModifyData(dtNews);
+									rptDocument.DataSource = PageHelper.ModifyData(dtNews, Consts.CON_TIN_TUC);
 									rptDocument.DataBind();
 									int totalPage = totalcount / int.Parse(perpage);
 									if (totalPage > 1)
@@ -84,7 +84,7 @@ namespace MyWeb.Modules.News
 							DataTable dtNews = NewsService.News_Pagination(pagenum, perpage, dtGrp.Rows[0]["Level"].ToString(), Lang);
 							if (dtNews.Rows.Count > 0)
 							{
-								rptDocument.DataSource = PageHelper.ModifyData(dtNews);
+								rptDocument.DataSource = PageHelper.ModifyData(dtNews, Consts.CON_VAN_BAN);
 								rptDocument.DataBind();
 								int totalPage = totalcount / int.Parse(perpage);
 								if (totalPage > 1)
@@ -107,13 +107,20 @@ namespace MyWeb.Modules.News
 			int totalPage = totalcount / int.Parse(perpage);
 			int currPage;
 			string urlOrigin = Request.Path;
-			if (urlOrigin.IndexOf("?") > -1)
+			if (urlOrigin.IndexOf("/trang") > -1)
 			{
 				urlOrigin = urlOrigin.Substring(0, urlOrigin.LastIndexOf("-") + 1);
 			}
 			else
 			{
-				urlOrigin = urlOrigin + Consts.CON_PARAM_URL_PAGE + "-";
+				if (urlOrigin.EndsWith("/"))
+				{
+					urlOrigin = urlOrigin + Consts.CON_PARAM_URL_PAGE + "-";
+				}
+				else
+				{
+					urlOrigin = urlOrigin + "/" + Consts.CON_PARAM_URL_PAGE + "-";
+				}
 			}
 
 			if (int.TryParse(pagenum, out currPage) == false)

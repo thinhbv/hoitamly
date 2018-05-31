@@ -47,7 +47,7 @@ namespace MyWeb.Modules.Page
 					totalcount = dtNews.Rows.Count;
 					if (dtNews.Rows.Count > 0)
 					{
-						rptNews.DataSource = PageHelper.ModifyData(dtNews);
+						rptNews.DataSource = PageHelper.ModifyData(dtNews, Consts.CON_TIN_TUC);
 						rptNews.DataBind();
 					}
 				}

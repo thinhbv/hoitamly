@@ -309,7 +309,7 @@ namespace MyWeb.Common
 			return strUrl;
 		}
 
-		public static DataTable ModifyData(DataTable dt)
+		public static DataTable ModifyData(DataTable dt, string prefix)
 		{
 			dt.Columns.Add("No", typeof(Int32));
 			dt.Columns.Add("Link", typeof(string));
@@ -317,7 +317,7 @@ namespace MyWeb.Common
 			{
 				DataRow dr = dt.Rows[i];
 				dr["No"] = (i + 1);
-				dr["Link"] = PageHelper.GeneralDetailUrl(Consts.CON_TIN_TUC, dr["GroupTagNews"].ToString(), dr["Id"].ToString(), dr["Name"].ToString());
+				dr["Link"] = PageHelper.GeneralDetailUrl(prefix, dr["GroupTagNews"].ToString(), dr["Id"].ToString(), dr["Name"].ToString());
 			}
 			return dt;
 		}

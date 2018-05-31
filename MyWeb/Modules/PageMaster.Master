@@ -47,11 +47,15 @@
 
 					<div class="p-top-info">
 						<div class="time-now">
-							<%=String.Format("{0:dddd, dd/MM/yyyy}", DateTime.Now) + " (GTM+7)" %>
+							<%=String.Format("{0:dddd, dd/MM/yyyy}", DateTime.Now) + " (GTM+7)" %><div style="float:right; color:gold; font-weight:bold;">Hotline: <asp:Literal ID="ltrName" runat="server"></asp:Literal></div>
 						</div>
 					</div>
 					<div id="main">
 						<div class="pagel">
+							<div class="page-category">
+								<h2>
+									<asp:Label ID="lblName" runat="server"></asp:Label></h2>
+							</div>
 							<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 						</div>
 						<uc7:MenuLeftNews ID="idU_MenuLeftNews" runat="server" />

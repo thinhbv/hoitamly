@@ -34,6 +34,10 @@ namespace MyWeb.Controls
 				{
 					Lang = Request.Cookies["CurrentLanguage"].Value;
 				}
+				if (string.IsNullOrEmpty(Level))
+				{
+					return;
+				}
 				DataTable dtG = new DataTable();
 				if (string.IsNullOrEmpty(groupid))
 				{
@@ -72,7 +76,7 @@ namespace MyWeb.Controls
 				DataRow[] drRows = dtNews.Select("GroupNewsId=" + sGroupId);
 				if (drRows != null && drRows.Length > 0)
 				{
-					DataTable dtTmp = PageHelper.ModifyData(drRows.CopyToDataTable());
+					DataTable dtTmp = PageHelper.ModifyData(drRows.CopyToDataTable(), Consts.CON_TIN_TUC);
 					DataRow dr = dtTmp.Rows[0];
 					ltrNews.Text += "<a href='" + dr["Link"].ToString() + "'>";
 					ltrNews.Text += "<img src='" + StringClass.ThumbImage(dr["Image"].ToString()) + "' title='" + dr["Name"].ToString() + "' alt='" + dr["Name"].ToString() + "' /></a>";

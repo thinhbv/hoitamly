@@ -78,7 +78,7 @@ namespace MyWeb
 					DataRow[] drNews = dtNews.Select("GroupNewsId IN " + strGroup, "Date DESC");
 					if (drNews != null && drNews.Length > 0)
 					{
-						DataTable dtTemp = PageHelper.ModifyData(drNews.CopyToDataTable());
+						DataTable dtTemp = PageHelper.ModifyData(drNews.CopyToDataTable(), Consts.CON_TIN_TUC);
 						DataTable dtNewsOne = dtTemp.AsEnumerable().Take(1).CopyToDataTable();
 						rptNewsOne.DataSource = dtNewsOne;
 						rptNewsOne.DataBind();
