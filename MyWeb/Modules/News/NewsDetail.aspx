@@ -4,9 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-	<div class="page-category">
-		<h2><a href="<%=PageHelper.GeneralGroupUrl(Consts.CON_TIN_TUC,id,groupName) %>"><%=groupName %></a></h2>
-	</div>
 	<div class="page-content">
 		<div class="news-detail">
 			<div class="title" id="newstitle">

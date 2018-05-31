@@ -134,13 +134,13 @@ namespace MyWeb.Modules.News
 			if (currPage == 1)
 			{
 				strPaging += "<li id='pagination_previous_bottom' class='disabled pagination_previous'>\n";
-				strPaging += "<span><i class='fa fa-chevron-left'></i><b>Previous</b></span></li>\n";
+				strPaging += "<span><i class='fa fa-chevron-left'></i><b><<</b></span></li>\n";
 			}
 			else
 			{
 				strPaging += "<li id='pagination_previous_bottom' class='pagination_previous'>\n";
 				strPaging += "<a href='" + urlOrigin + (currPage - 1).ToString() + "'>";
-				strPaging += "<b>Previous</b> <i class='fa fa-chevron-left'></i></a></li>\n";
+				strPaging += "<b><<</b> <i class='fa fa-chevron-left'></i></a></li>\n";
 			}
 			if (totalPage < 6)
 			{
@@ -205,13 +205,13 @@ namespace MyWeb.Modules.News
 			if (currPage == totalPage)
 			{
 				strPaging += "<li id='pagination_next_bottom' class='disabled pagination_next'>\n";
-				strPaging += "<span><i class='fa fa-chevron-right'></i><b>Next</b></span></li>\n";
+				strPaging += "<span><i class='fa fa-chevron-right'></i><b>>></b></span></li>\n";
 			}
 			else
 			{
 				strPaging += "<li id='pagination_next_bottom' class='pagination_next'>\n";
 				strPaging += "<a href='" + urlOrigin + (currPage + 1).ToString() + "'>";
-				strPaging += "<b>Next</b> <i class='fa fa-chevron-right'></i></a></li>\n";
+				strPaging += "<b>>></b> <i class='fa fa-chevron-right'></i></a></li>\n";
 			}
 
 			return strPaging;

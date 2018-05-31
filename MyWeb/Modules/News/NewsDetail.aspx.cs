@@ -6,6 +6,7 @@ using MyWeb.Data;
 using MyWeb.Business;
 using MyWeb.Common;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace MyWeb.Modules.News
 {
@@ -40,6 +41,7 @@ namespace MyWeb.Modules.News
                     DataTable dtNews = NewsService.News_GetById(id);
                     if (dtNews.Rows.Count > 0)
 					{
+						Label lblName = (Label)Master.FindControl("lblName"); 
 						sTitleName = dtNews.Rows[0]["Name"].ToString();
 						Page.Title = sTitleName;
 						sContent = dtNews.Rows[0]["Content"].ToString();
@@ -58,6 +60,10 @@ namespace MyWeb.Modules.News
 							{
 								idU_OtherGroupNews.Level = dtG.Rows[0]["Level"].ToString();
 								groupName = dtG.Rows[0]["Name"].ToString();
+								if (lblName != null)
+								{
+									lblName.Text = groupName;
+								}
 							}
 
 							DataTable dtNewsReleate = NewsService.News_GetByTop("4", "Id <> " + id + " AND Active = 1 AND GroupNewsId = '" + dtNews.Rows[0]["GroupNewsId"].ToString() + "' AND Language='" + Lang + "'", "Date Desc");

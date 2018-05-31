@@ -43,6 +43,7 @@ namespace MyWeb.Modules.News
 					DataTable dtNews = NewsService.News_GetById(id);
 					if (dtNews.Rows.Count > 0)
 					{
+						Label lblName = (Label)Master.FindControl("lblName"); 
 						sTitleName = dtNews.Rows[0]["Name"].ToString();
 						Page.Title = sTitleName;
 						sContent = dtNews.Rows[0]["Content"].ToString();
@@ -53,6 +54,10 @@ namespace MyWeb.Modules.News
 						if (dtG.Rows.Count > 0)
 						{
 							groupName = dtG.Rows[0]["Name"].ToString();
+							if (lblName != null)
+							{
+								lblName.Text = groupName;
+							}
 						}
 						DataTable dtLastNews = NewsService.News_GetByTop("10", "Id <> " + id + "  AND GroupNewsId IN (Select Id from GroupNews where Active=1 AND [Index]=0) AND Active = 1 AND Language='" + Lang + "'", "Date Desc");
 						dtLastNews = PageHelper.ModifyData(dtLastNews, Consts.CON_TIN_TUC);
