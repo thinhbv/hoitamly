@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Globalization;
+using System.Threading;
 
 namespace MyWeb.Common
 {
@@ -35,6 +37,7 @@ namespace MyWeb.Common
         public static string ConvertDate(string Date, string DateFormat)
         {
             if (Date.Length >0 ){
+				Thread.CurrentThread.CurrentCulture = new CultureInfo("vi-VN");
                 DateTime dt = Convert.ToDateTime(Date);
                 return dt.ToString(DateFormat);
             }

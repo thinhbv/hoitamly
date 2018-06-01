@@ -6,5 +6,10 @@
 			<span>|</span>
 		</ItemTemplate>
 	</asp:Repeater>
+	<%if (Lang == "vi"){ %>
+	<a href="/lien-he">Liên hệ</a>
+	<%} else{ %>
+	<a href="/lien-he">Contact</a>
+	<%} %>
 </div>
 <asp:Literal ID="ltrInfo" runat="server"></asp:Literal>
